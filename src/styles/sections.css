@@ -708,6 +708,107 @@
     .detail__aside { position: static; }
   }
 
+  @media (max-width: 600px) {
+    .hero {
+      padding-block: var(--space-7) var(--space-3);
+    }
+
+    .hero__grid { gap: var(--space-6); }
+
+    .hero__portrait {
+      --portrait-w: 190px;
+      gap: var(--space-4);
+    }
+
+    .hero__copy { gap: var(--space-4); }
+
+    .hero__lead {
+      font-size: var(--text-base);
+      line-height: var(--leading-body);
+    }
+
+    .hero__actions {
+      display: grid;
+      width: 100%;
+    }
+
+    .hero__actions .button { width: 100%; }
+
+    .hero__meta {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: var(--space-3);
+      font-size: var(--text-xs);
+    }
+
+    .hero__meta > * { min-width: 0; }
+
+    .experience-row {
+      padding-block: var(--space-4);
+      gap: var(--space-3);
+    }
+
+    .experience-row__stamp {
+      justify-content: space-between;
+      gap: var(--space-3);
+    }
+
+    .experience-row__stamp .company-logo {
+      --logo-w: 84px;
+      --logo-h: 20px;
+    }
+
+    .experience-row__summary { max-width: none; }
+    .experience-row__tags { gap: var(--space-2); }
+    .experience-continuation { text-align: left; }
+
+    .project-grid { gap: var(--space-3); }
+
+    .project-card {
+      min-height: auto;
+      padding: var(--space-5);
+      padding-right: var(--space-7);
+    }
+
+    .project-card .card-arrow {
+      top: var(--space-5);
+      right: var(--space-4);
+      opacity: 1;
+      transform: none;
+    }
+
+    .project-card__tags .tag:nth-child(n+3) { display: none; }
+
+    .metric-row {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: var(--space-3);
+    }
+
+    .certificate-card__zoom {
+      opacity: 1;
+      transform: none;
+    }
+
+    .contact-grid { gap: var(--space-8); }
+    .field-row { grid-template-columns: 1fr; }
+    .contact-form .button { width: 100%; }
+
+    .detail {
+      padding-top: var(--space-6);
+      overflow-wrap: anywhere;
+    }
+
+    .detail__header {
+      margin-top: var(--space-6);
+      padding-bottom: var(--space-6);
+    }
+
+    .detail__grid {
+      margin-top: var(--space-6);
+      gap: var(--space-7);
+    }
+  }
+
   /* --- 404 ------------------------------------------------------------------ */
 
   .not-found {

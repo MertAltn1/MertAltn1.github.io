@@ -8,7 +8,7 @@ import NotFoundPage from './NotFoundPage'
 
 // Work carried out inside client or employer systems — these case studies stay
 // deliberately high level.
-const CONFIDENTIAL_SLUGS = ['heys', 'glpi-inventory-reporting', 'playwright-automation']
+const CONFIDENTIAL_SLUGS = ['playwright-automation']
 
 export default function ProjectDetailPage() {
   const { slug } = useParams()
