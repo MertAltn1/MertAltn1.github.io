@@ -1,0 +1,66 @@
+// Each entry carries the scan itself, not just a claim: `preview` is a JPEG of
+// the first page rendered into /public/certificates/preview, `file` is the PDF.
+export const certificates = [
+  {
+    title: 'University Engagement Program Bootcamp',
+    issuer: 'Amazon · AWS',
+    detail: '2025 cohort',
+    description: 'Software development engineering bootcamp run with ACM Bilkent and the Amazon Women in Engineering community.',
+    preview: '/certificates/preview/amazon-university-engagement-bootcamp.jpg',
+    file: '/certificates/amazon-university-engagement-bootcamp.pdf',
+  },
+  {
+    title: 'Temel Linux 401',
+    issuer: 'Turkcell Akademi',
+    detail: 'Jan 2026',
+    description: 'Advanced level of the Gelecegi Yazanlar Linux track, completed with an exam.',
+    preview: '/certificates/preview/turkcell-linux-401.jpg',
+    file: '/certificates/turkcell-linux-401.pdf',
+  },
+  {
+    title: 'Temel Linux 201',
+    issuer: 'Turkcell Akademi',
+    detail: 'Jan 2026',
+    description: 'Intermediate Linux administration: permissions, processes, and system services.',
+    preview: '/certificates/preview/turkcell-linux-201.jpg',
+    file: '/certificates/turkcell-linux-201.pdf',
+  },
+  {
+    title: 'Temel Linux 101',
+    issuer: 'Turkcell Akademi',
+    detail: 'Jan 2026',
+    description: 'Linux fundamentals: shell, filesystem, and core administration commands.',
+    preview: '/certificates/preview/turkcell-linux-101.jpg',
+    file: '/certificates/turkcell-linux-101.pdf',
+  },
+  {
+    title: 'FirstTech Online Internship Program',
+    issuer: 'Intertech · inter-Akademi',
+    detail: '5–23 May 2025',
+    description: 'Three-week program on enterprise systems and software delivery processes.',
+    preview: '/certificates/preview/intertech-firsttech.jpg',
+    file: '/certificates/intertech-firsttech.pdf',
+  },
+  {
+    title: 'Denizaşırı Online Internship Program',
+    issuer: 'DenizBank · Deniz Akademi',
+    detail: 'Dec 2024 – Jan 2025',
+    description: 'Structured training on banking IT infrastructure and support workflows.',
+    preview: '/certificates/preview/denizbank-denizasiri.jpg',
+    file: '/certificates/denizbank-denizasiri.pdf',
+  },
+  {
+    title: 'Python Camp',
+    issuer: 'IEEE Bilkent University Student Branch',
+    detail: 'Sept–Oct 2025',
+    description: 'Three-session hands-on Python programming camp.',
+    preview: '/certificates/preview/ieee-bilkent-python-camp.jpg',
+    file: '/certificates/ieee-bilkent-python-camp.pdf',
+  },
+  {
+    title: 'Deep Learning Project Camp',
+    issuer: 'Akbank · Global AI Hub',
+    description: 'Applied deep learning program completed with a graded end-of-camp project.',
+    repo: 'https://github.com/MertAltn1/GlobalAIHub_BootCamp_Project_Akbank',
+  },
+]

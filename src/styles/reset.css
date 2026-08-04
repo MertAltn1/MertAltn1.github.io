@@ -1,0 +1,49 @@
+@layer reset {
+  *,
+  *::before,
+  *::after { box-sizing: border-box; }
+
+  html {
+    scroll-behavior: smooth;
+    /* Anchored sections stop below the sticky header instead of under it */
+    scroll-padding-top: calc(var(--header-h) + var(--space-5));
+    -webkit-text-size-adjust: 100%;
+  }
+
+  /* blockquote and figure carry a 40px UA inline margin — zero it too */
+  body,
+  h1, h2, h3, h4,
+  p, figure, figcaption, blockquote, dl, dd { margin: 0; }
+
+  body { min-width: 320px; }
+
+  button, input, textarea, select { font: inherit; color: inherit; }
+  button { cursor: pointer; background: none; border: 0; padding: 0; }
+
+  a { color: inherit; text-decoration: none; }
+
+  img, svg, video { display: block; max-width: 100%; }
+
+  ul, ol { margin: 0; padding: 0; list-style: none; }
+
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  ::selection {
+    background: color-mix(in srgb, var(--accent) 24%, transparent);
+    color: var(--heading);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
