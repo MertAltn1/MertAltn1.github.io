@@ -73,7 +73,7 @@ export default function ContactSection() {
                   <Linkedin size={17} aria-hidden="true" />
                   <span>
                     <span className="contact-channels__label mono">LinkedIn</span>
-                    <strong>Connect</strong>
+                    <strong>{site.name}</strong>
                   </span>
                 </a>
               </li>

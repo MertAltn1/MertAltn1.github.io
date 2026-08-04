@@ -1,6 +1,6 @@
 import { ArrowDown, ArrowUpRight, Download, GraduationCap, MapPin } from 'lucide-react'
 import Avatar from '../components/common/Avatar'
-import { Github } from '../components/common/BrandIcons'
+import { Github, Linkedin } from '../components/common/BrandIcons'
 import Button from '../components/common/Button'
 import { site } from '../data/site'
 import { education } from '../data/education'
@@ -38,6 +38,11 @@ export default function Hero() {
             <a href={site.github} target="_blank" rel="noreferrer">
               <Github size={15} aria-hidden="true" />{site.githubHandle}
             </a>
+            {site.linkedin && (
+              <a href={site.linkedin} target="_blank" rel="noreferrer">
+                <Linkedin size={15} aria-hidden="true" />{site.name}
+              </a>
+            )}
           </div>
         </div>
 
