@@ -43,6 +43,10 @@ export default function ExperienceSection() {
             </li>
           ))}
         </ol>
+
+        <p className="experience-continuation mono">
+          To be continued — new experience updates are coming soon.
+        </p>
       </div>
     </section>
   )

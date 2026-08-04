@@ -14,11 +14,6 @@ export default function Hero() {
     <section className="hero">
       <div className="container hero__grid">
         <div className="hero__copy">
-          <p className="availability">
-            <span className="availability__dot" aria-hidden="true" />
-            Open to internships and new grad roles
-          </p>
-
           <h1 className="hero__name">{site.fullName}</h1>
 
           <p className="hero__role">{site.role} · {site.subtitle}</p>

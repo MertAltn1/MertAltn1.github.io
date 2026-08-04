@@ -7,9 +7,7 @@ export const site = {
   email: 'altinhmerta@gmail.com',
   github: 'https://github.com/MertAltn1',
   githubHandle: 'MertAltn1',
-  // TODO: paste the LinkedIn profile URL here — the footer and contact links
-  // stay hidden until it is filled in.
-  linkedin: '',
+  linkedin: 'https://www.linkedin.com/in/mert-alt%C4%B1n-91a215285/',
   // Drop the files below into /public with exactly these names.
   cv: '/HalisMertAltin-CV.pdf',
   photo: '/mert.jpg',
