@@ -70,9 +70,18 @@
     flex-shrink: 0;
   }
 
-  /* Icon-only social links sit slightly apart from the labelled items */
-  .hero__meta-icon { margin-left: calc(var(--space-2) * -1); }
-  .hero__meta-icon:hover svg { color: var(--heading); }
+  /*
+   * The two icon links are one flex unit, so they wrap together and stay
+   * flush with the column's left edge. (A negative margin here previously
+   * pushed a wrapped icon outside the content column.)
+   */
+  .hero__meta-social {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-3);
+  }
+
+  .hero__meta-social a:hover svg { color: var(--heading); }
 
   /* Flex (not justify-self) so the figure can still stretch to the column width */
   .hero__portrait {

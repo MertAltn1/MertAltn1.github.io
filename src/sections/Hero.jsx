@@ -40,28 +40,28 @@ export default function Hero() {
               638px column and drops LinkedIn onto a second line. Both handles
               are written in full in the contact section.
             */}
-            <a
-              className="hero__meta-icon"
-              href={site.github}
-              target="_blank"
-              rel="noreferrer"
-              aria-label={`GitHub — ${site.githubHandle}`}
-              title={`GitHub — ${site.githubHandle}`}
-            >
-              <Github size={17} />
-            </a>
-            {site.linkedin && (
+            <span className="hero__meta-social">
               <a
-                className="hero__meta-icon"
-                href={site.linkedin}
+                href={site.github}
                 target="_blank"
                 rel="noreferrer"
-                aria-label={`LinkedIn — ${site.name}`}
-                title={`LinkedIn — ${site.name}`}
+                aria-label={`GitHub — ${site.githubHandle}`}
+                title={`GitHub — ${site.githubHandle}`}
               >
-                <Linkedin size={17} />
+                <Github size={17} />
               </a>
-            )}
+              {site.linkedin && (
+                <a
+                  href={site.linkedin}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={`LinkedIn — ${site.name}`}
+                  title={`LinkedIn — ${site.name}`}
+                >
+                  <Linkedin size={17} />
+                </a>
+              )}
+            </span>
           </div>
         </div>
 
