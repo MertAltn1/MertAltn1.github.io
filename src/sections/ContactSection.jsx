@@ -2,13 +2,7 @@ import { useState } from 'react'
 import { Mail, MapPin, Send } from 'lucide-react'
 import { Github, Linkedin } from '../components/common/BrandIcons'
 import { site } from '../data/site'
-
-const REASONS = [
-  'Internship opportunity',
-  'New grad / full-time role',
-  'Freelance or project work',
-  'Something else',
-]
+import { useLanguage } from '../hooks/useLanguage'
 
 /**
  * The site is static (GitHub Pages), so there is no server to post to.
@@ -16,18 +10,20 @@ const REASONS = [
  * client with everything already filled in, and nothing is stored anywhere.
  */
 export default function ContactSection() {
-  const [form, setForm] = useState({ name: '', email: '', phone: '', reason: REASONS[0], message: '' })
+  const { language, t } = useLanguage()
+  const [form, setForm] = useState({ name: '', email: '', phone: '', reasonIndex: 0, message: '' })
 
   const update = (field) => (event) => setForm((prev) => ({ ...prev, [field]: event.target.value }))
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    const subject = `${form.reason} — ${form.name || 'Portfolio enquiry'}`
+    const reason = t.contact.reasons[form.reasonIndex]
+    const subject = `${reason} — ${form.name || t.contact.enquiry}`
     const body = [
-      `Name: ${form.name}`,
-      `Email: ${form.email}`,
-      form.phone && `Phone: ${form.phone}`,
-      `Reason: ${form.reason}`,
+      `${t.contact.name}: ${form.name}`,
+      `${t.contact.email}: ${form.email}`,
+      form.phone && `${t.contact.phone}: ${form.phone}`,
+      `${t.contact.reason}: ${reason}`,
       '',
       form.message,
     ].filter(Boolean).join('\n')
@@ -40,20 +36,16 @@ export default function ContactSection() {
     <section className="section" id="contact">
       <div className="container contact-grid">
         <div className="contact-intro">
-          <span className="eyebrow">Contact</span>
-          <h2>Interested in building something useful together?</h2>
-          <p>
-            I am always glad to discuss software, systems, internships, and thoughtful engineering
-            work. Fill in the form and it will open in your own mail client — or write to me
-            directly.
-          </p>
+          <span className="eyebrow">{t.contact.eyebrow}</span>
+          <h2>{t.contact.title}</h2>
+          <p>{t.contact.text}</p>
 
           <ul className="contact-channels">
             <li>
               <a href={`mailto:${site.email}`}>
                 <Mail size={17} aria-hidden="true" />
                 <span>
-                  <span className="contact-channels__label mono">Email</span>
+                  <span className="contact-channels__label mono">{t.contact.email}</span>
                   <strong>{site.email}</strong>
                 </span>
               </a>
@@ -82,7 +74,7 @@ export default function ContactSection() {
               <div>
                 <MapPin size={17} aria-hidden="true" />
                 <span>
-                  <span className="contact-channels__label mono">Based in</span>
+                  <span className="contact-channels__label mono">{t.contact.based}</span>
                   <strong>{site.location}</strong>
                 </span>
               </div>
@@ -92,35 +84,35 @@ export default function ContactSection() {
 
         <form className="contact-form" onSubmit={handleSubmit}>
           <div className="field">
-            <label htmlFor="contact-name">Your name</label>
+            <label htmlFor="contact-name">{t.contact.name}</label>
             <input id="contact-name" type="text" required value={form.name} onChange={update('name')} />
           </div>
 
           <div className="field-row">
             <div className="field">
-              <label htmlFor="contact-email">Email</label>
+              <label htmlFor="contact-email">{t.contact.email}</label>
               <input id="contact-email" type="email" required value={form.email} onChange={update('email')} />
             </div>
             <div className="field">
-              <label htmlFor="contact-phone">Phone <span className="field__hint">optional</span></label>
+              <label htmlFor="contact-phone">{t.contact.phone} <span className="field__hint">{t.contact.optional}</span></label>
               <input id="contact-phone" type="tel" value={form.phone} onChange={update('phone')} />
             </div>
           </div>
 
           <div className="field">
-            <label htmlFor="contact-reason">Reason for contact</label>
-            <select id="contact-reason" value={form.reason} onChange={update('reason')}>
-              {REASONS.map((reason) => <option key={reason}>{reason}</option>)}
+            <label htmlFor="contact-reason">{t.contact.reason}</label>
+            <select id="contact-reason" value={form.reasonIndex} onChange={update('reasonIndex')}>
+              {t.contact.reasons.map((reason, index) => <option value={index} key={`${language}-${reason}`}>{reason}</option>)}
             </select>
           </div>
 
           <div className="field">
-            <label htmlFor="contact-message">Message</label>
+            <label htmlFor="contact-message">{t.contact.message}</label>
             <textarea id="contact-message" rows="4" required value={form.message} onChange={update('message')} />
           </div>
 
           <button className="button button--primary" type="submit">
-            Compose email<Send size={15} aria-hidden="true" />
+            {t.contact.submit}<Send size={15} aria-hidden="true" />
           </button>
         </form>
       </div>

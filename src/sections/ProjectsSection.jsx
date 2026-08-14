@@ -3,19 +3,23 @@ import { Link } from 'react-router-dom'
 import CompanyLogo from '../components/common/CompanyLogo'
 import SectionHeading from '../components/common/SectionHeading'
 import { projects } from '../data/projects'
+import { useLanguage } from '../hooks/useLanguage'
 
 export default function ProjectsSection() {
+  const { t, localize } = useLanguage()
   return (
     <section className="section" id="projects">
       <div className="container">
         <SectionHeading
-          eyebrow="Selected work"
-          title="Projects with a practical purpose"
-          text="Interfaces and systems designed to make information clearer, testing safer, and everyday work more efficient."
+          eyebrow={t.projects.eyebrow}
+          title={t.projects.title}
+          text={t.projects.text}
         />
 
         <div className="project-grid">
-          {projects.map((project, index) => (
+          {projects.map((rawProject, index) => {
+            const project = localize(rawProject)
+            return (
             <Link className="card project-card" to={`/projects/${project.slug}`} key={project.slug}>
               <div className="project-card__top mono">
                 <span>{project.category}</span>
@@ -42,7 +46,8 @@ export default function ProjectsSection() {
 
               <ArrowUpRight className="card-arrow" size={18} aria-hidden="true" />
             </Link>
-          ))}
+            )
+          })}
         </div>
       </div>
     </section>

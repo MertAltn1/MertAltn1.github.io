@@ -2,10 +2,12 @@ import { useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { Menu, X } from 'lucide-react'
 import ThemeToggle from '../common/ThemeToggle'
+import LanguageToggle from '../common/LanguageToggle'
 import { navSectionIds, navSections } from '../../data/sections'
 import { useSectionNav } from '../../hooks/useSectionNav'
 import { useScrollSpy } from '../../hooks/useScrollSpy'
 import { site } from '../../data/site'
+import { useLanguage } from '../../hooks/useLanguage'
 
 export default function Header() {
   const [open, setOpen] = useState(false)
@@ -14,6 +16,7 @@ export default function Header() {
   const goToSection = useSectionNav()
   const isHome = pathname === '/'
   const activeId = useScrollSpy(navSectionIds, isHome)
+  const { t } = useLanguage()
 
   useEffect(() => setOpen(false), [pathname])
 
@@ -32,12 +35,12 @@ export default function Header() {
   return (
     <header className="site-header" data-scrolled={scrolled}>
       <div className="container nav-shell">
-        <Link className="wordmark" to="/" aria-label={`${site.fullName} — home`}>
+        <Link className="wordmark" to="/" aria-label={`${site.fullName} — ${t.a11y.home}`}>
           <span className="wordmark__mark" aria-hidden="true">MA</span>
           {site.name}
         </Link>
 
-        <nav className="nav-links" data-open={open} aria-label="Sections">
+        <nav className="nav-links" data-open={open} aria-label={t.a11y.sections}>
           {navSections.map(({ id, label }) => (
             <button
               key={id}
@@ -46,19 +49,20 @@ export default function Header() {
               aria-current={isHome && activeId === id}
               onClick={() => handleNav(id)}
             >
-              {label}
+              {t.nav[id] ?? label}
             </button>
           ))}
         </nav>
 
         <div className="nav-actions">
+          <LanguageToggle />
           <ThemeToggle />
           <button
             className="icon-button menu-button"
             type="button"
             onClick={() => setOpen((value) => !value)}
             aria-expanded={open}
-            aria-label="Toggle navigation"
+            aria-label={t.a11y.toggleNav}
           >
             {open ? <X size={20} /> : <Menu size={20} />}
           </button>

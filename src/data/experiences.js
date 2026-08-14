@@ -17,6 +17,12 @@ export const experiences = [
     ],
     technologies: ['End-to-End Development', 'Systems Engineering', 'Software Architecture', 'System Integration'],
     note: 'Project scope and technical implementation details are omitted due to defense-industry confidentiality requirements.',
+    tr: {
+      role: 'Yazılım Mühendisi Stajyeri', period: 'Temmuz 2026', location: 'İstanbul', type: 'Yüz yüze staj',
+      summary: 'Bir savunma teknolojileri ortamında kurum içi bir sistemin uçtan uca geliştirilmesine katkı sağladım.',
+      highlights: ['Kurum içi bir yazılım sisteminin analiz, geliştirme, doğrulama ve teslim aşamalarında çalıştım', 'Güvenilirlik ve operasyonel kullanıma odaklanan sistem çözümleri geliştirdim', 'Sıkı gizlilik gereksinimlerine uyarak mühendislik ve bilgi sistemleri iş akışlarında görev aldım'],
+      note: 'Proje kapsamı ve teknik uygulama ayrıntıları savunma sanayii gizlilik gereksinimleri nedeniyle paylaşılmamıştır.',
+    },
   },
   {
     slug: 'turkcell-test-automation',
@@ -34,6 +40,11 @@ export const experiences = [
       'Built reusable JavaScript helpers to support maintainable testing across an actively used system',
     ],
     technologies: ['Playwright', 'JavaScript', 'Node.js', 'CRM Testing'],
+    tr: {
+      role: 'Yazılım Mühendisi Stajyeri', period: 'Haziran 2026', location: 'İstanbul', type: 'Yüz yüze staj',
+      summary: 'Aktif olarak kullanılan Turkcell iş akışları için Playwright ile üretim odaklı bir UI test otomasyon sistemi geliştirdim.',
+      highlights: ['Tekrarlanabilir test senaryolarını otomatik çalıştıran kod tabanlı UI testleri geliştirdim', 'Kullanıcı etkileşimlerini, sayfa geçişlerini, aramaları ve beklenen sonuç kontrollerini otomatikleştirdim', 'Aktif kullanılan bir sistemde sürdürülebilir testleri destekleyen yeniden kullanılabilir JavaScript yardımcıları oluşturdum'],
+    },
   },
   {
     slug: 'turkcell-linux-operations',
@@ -51,6 +62,11 @@ export const experiences = [
       'Worked with SELinux and LVM-based disk and logical volume management',
     ],
     technologies: ['RHEL 8.10', 'Linux', 'SSH', 'SELinux', 'LVM'],
+    tr: {
+      role: 'Yazılım Mühendisi Stajyeri', period: 'Ocak 2026', location: 'Ankara', type: 'Yüz yüze staj',
+      summary: 'Red Hat Enterprise Linux sunucular üzerinde güvenli erişim, yetkilendirme ve depolama yönetimine odaklanan sistem mühendisliği görevleri gerçekleştirdim.',
+      highlights: ['RHEL sunucularda kullanıcı, grup ve erişim yetkilerini yönettim', 'SSH erişimini yapılandırdım ve güvenli dosya sistemi izinleri uyguladım', 'SELinux ile LVM tabanlı disk ve mantıksal birim yönetimi üzerinde çalıştım'],
+    },
   },
   {
     slug: 'intertech-firsttech',
@@ -66,6 +82,11 @@ export const experiences = [
       'Gained familiarity with Agile and Scrum methods used by enterprise technology teams',
     ],
     technologies: ['Enterprise Systems', 'Software Processes'],
+    tr: {
+      role: 'Yazılım Mühendisi Stajyeri', period: 'Mayıs 2025', type: 'Çevrim içi staj',
+      summary: 'Finans teknolojilerindeki yazılım geliştirme süreçlerini gözlemledim ve yazılım geliştirme yaşam döngüsü hakkında deneyim kazandım.',
+      highlights: ['Finans teknolojisi ekiplerinin projeleri planlamadan teslimata kadar nasıl yönettiğini öğrendim', 'SDLC aşamalarını ve her aşamadaki sorumlulukları inceledim', 'Kurumsal teknoloji ekiplerinde kullanılan Agile ve Scrum yöntemlerini tanıdım'],
+    },
   },
   {
     slug: 'denizbank-denizasiri',
@@ -81,5 +102,10 @@ export const experiences = [
       'Observed how corporate technology teams support financial systems and data-driven workflows',
     ],
     technologies: ['Banking IT', 'Support Workflows'],
+    tr: {
+      role: 'Yazılım Mühendisi Stajyeri', period: 'Aralık 2024 – Ocak 2025', type: 'Çevrim içi staj',
+      summary: 'Bankacılık teknolojileri, finansal sistemler ve kurumsal yazılım ekiplerinin çalışma yöntemleri hakkında bilgi edindim.',
+      highlights: ['Modern bankacılık operasyonlarında yazılım ve veri teknolojilerinin rolünü inceledim', 'Temel büyük veri kavramları ve metin madenciliği yaklaşımları üzerinde çalıştım', 'Kurumsal teknoloji ekiplerinin finansal sistemleri ve veri odaklı iş akışlarını nasıl desteklediğini gözlemledim'],
+    },
   },
 ]

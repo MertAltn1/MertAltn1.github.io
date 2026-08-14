@@ -8,6 +8,7 @@ export const projects = [
     challenge: 'Turn recurring UI checks into maintainable automated scenarios that can be executed consistently.',
     highlights: ['Automated page transitions and user interactions', 'Search workflows and expected-result validation', 'Reusable scenarios for repeatable UI test runs'],
     technologies: ['Playwright', 'JavaScript', 'Node.js'],
+    tr: { category: 'Kalite mühendisliği', summary: 'Kullanıcı işlemlerini otomatikleştiren ve beklenen uygulama davranışlarını doğrulayan Playwright test senaryoları.', challenge: 'Tekrarlanan UI kontrollerini tutarlı şekilde çalıştırılabilen, sürdürülebilir otomatik senaryolara dönüştürmek.', highlights: ['Otomatik sayfa geçişleri ve kullanıcı etkileşimleri', 'Arama akışları ve beklenen sonuç doğrulaması', 'Tekrarlanabilir UI testleri için yeniden kullanılabilir senaryolar'] },
   },
   {
     slug: 'akbank-deep-learning',
@@ -20,6 +21,7 @@ export const projects = [
     challenge: 'Train a model that generalizes on the provided dataset, then justify the result with proper evaluation rather than a single accuracy number.',
     highlights: ['96% accuracy on the final dataset', 'Model training and evaluation workflow', 'Completed the camp with certification'],
     technologies: ['Python', 'Deep Learning', 'Model Evaluation'],
+    tr: { title: 'Derin Öğrenme Görüntü Sınıflandırıcısı', fullName: 'Akbank Derin Öğrenme Proje Kampı', category: 'Makine öğrenmesi', summary: 'Akbank Derin Öğrenme Proje Kampı sırasında geliştirilen ve değerlendirilen, son veri kümesinde %96 doğruluğa ulaşan bir derin öğrenme modeli.', challenge: 'Sağlanan veri kümesinde genelleme yapabilen bir model eğitmek ve sonucu yalnızca tek bir doğruluk değeri yerine doğru değerlendirme yöntemleriyle açıklamak.', highlights: ['Son veri kümesinde %96 doğruluk', 'Model eğitimi ve değerlendirme iş akışı', 'Kampın sertifikayla tamamlanması'] },
   },
   {
     slug: 'hospital-management',
@@ -30,6 +32,7 @@ export const projects = [
     challenge: 'Model interconnected healthcare workflows with clear object relationships and an approachable desktop interface.',
     highlights: ['Doctor, patient, appointment, and user management', 'Appointment scheduling workflows', 'Structured object-oriented domain design'],
     technologies: ['Java', 'Swing', 'OOP'],
+    tr: { title: 'Hastane Yönetim Sistemi', category: 'Masaüstü uygulaması', summary: 'Doktor, hasta, randevu ve kullanıcı işlemlerini yönetmek için Java ve nesne yönelimli programlama ile geliştirilen bir masaüstü hastane sistemi.', challenge: 'Birbiriyle bağlantılı sağlık süreçlerini açık nesne ilişkileri ve kullanışlı bir masaüstü arayüzüyle modellemek.', highlights: ['Doktor, hasta, randevu ve kullanıcı yönetimi', 'Randevu planlama iş akışları', 'Yapılandırılmış nesne yönelimli alan tasarımı'] },
   },
   {
     slug: 'pokemon-web-app',
@@ -40,6 +43,7 @@ export const projects = [
     challenge: 'Wire a game loop and its state through to the server without losing the responsiveness of the interface, then run the whole thing on AWS.',
     highlights: ['1 playable mini-game feature', 'Front-end and back-end integrated end to end', 'Hosted and served on AWS infrastructure'],
     technologies: ['JavaScript', 'HTML', 'CSS', 'Node.js', 'AWS'],
+    tr: { title: 'Pokémon Full-Stack Web Uygulaması', category: 'Full-stack · AWS', summary: 'Oynanabilir bir mini oyun içeren ve AWS üzerinde yayınlanan temalı bir full-stack web uygulaması.', challenge: 'Arayüzün akıcılığını koruyarak oyun döngüsünü ve durumunu sunucuya bağlamak, ardından uygulamanın tamamını AWS üzerinde çalıştırmak.', highlights: ['Oynanabilir mini oyun özelliği', 'Uçtan uca frontend ve backend entegrasyonu', 'AWS altyapısında yayınlama'] },
   },
   {
     slug: 'node-express-coursework',
@@ -50,5 +54,6 @@ export const projects = [
     challenge: 'Process form submissions safely, return field-specific validation feedback, and preserve submitted values in a dynamically rendered interface.',
     highlights: ['GET and POST form workflows', 'Server-side validation with express-validator', 'Field-specific error handling and dynamic EJS rendering'],
     technologies: ['Node.js', 'Express', 'EJS', 'express-validator'],
+    tr: { title: 'Node & Express Uygulamaları', category: 'Web geliştirme', summary: 'Node.js, Express ve EJS ile geliştirilen; yapılandırılmış sunucu tarafı giriş doğrulaması içeren bir form uygulaması.', challenge: 'Form gönderimlerini güvenli şekilde işlemek, alan bazlı doğrulama geri bildirimi vermek ve gönderilen değerleri dinamik arayüzde korumak.', highlights: ['GET ve POST form akışları', 'express-validator ile sunucu tarafı doğrulama', 'Alan bazlı hata yönetimi ve dinamik EJS render'] },
   },
 ]

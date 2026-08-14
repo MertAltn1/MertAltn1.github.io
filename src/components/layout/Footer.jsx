@@ -4,21 +4,23 @@ import { Github, Linkedin } from '../common/BrandIcons'
 import { sections } from '../../data/sections'
 import { site } from '../../data/site'
 import { useSectionNav } from '../../hooks/useSectionNav'
+import { useLanguage } from '../../hooks/useLanguage'
 
 export default function Footer() {
   const goToSection = useSectionNav()
+  const { t } = useLanguage()
 
   return (
     <footer className="site-footer">
       <div className="container footer-grid">
         <div className="footer-brand">
           <h2><Link to="/">{site.fullName}</Link></h2>
-          <p>Software engineering, test automation, and the systems underneath.</p>
+          <p>{t.footer.text}</p>
         </div>
 
         <nav className="footer-nav" aria-label="Footer">
           {sections.map(({ id, label }) => (
-            <button key={id} type="button" onClick={() => goToSection(id)}>{label}</button>
+            <button key={id} type="button" onClick={() => goToSection(id)}>{t.nav[id] ?? label}</button>
           ))}
         </nav>
 
