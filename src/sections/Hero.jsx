@@ -5,6 +5,7 @@ import Button from '../components/common/Button'
 import { site } from '../data/site'
 import { education } from '../data/education'
 import { quote } from '../data/quote'
+import { fill } from '../data/translations'
 import { useSectionNav } from '../hooks/useSectionNav'
 import { useLanguage } from '../hooks/useLanguage'
 
@@ -49,7 +50,7 @@ export default function Hero() {
         <div className="hero__portrait">
           <Avatar
             src={site.photo}
-            alt={`${t.hero.portrait} ${site.fullName}`}
+            alt={fill(t.hero.portraitAlt, { name: site.fullName })}
             caption={site.location}
           />
           <blockquote className="hero__quote">{quote[language]}</blockquote>

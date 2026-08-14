@@ -174,7 +174,12 @@
 
   .experience-row {
     display: grid;
-    grid-template-columns: 9rem minmax(0, 1fr) auto 1.25rem;
+    /*
+     * The tag track is capped rather than `auto`: Baykar's tags are far longer
+     * than the others, and an auto track sized to them stole width from the
+     * body column, wrapping the "· İş yerinde staj · İstanbul" meta line.
+     */
+    grid-template-columns: 9rem minmax(0, 1fr) minmax(0, 15rem) 1.25rem;
     align-items: start;
     gap: var(--space-5);
     padding-block: var(--space-5);
@@ -204,7 +209,6 @@
 
   .experience-row__period {
     color: var(--muted);
-    white-space: nowrap;
   }
 
   .experience-row:hover .company-logo { opacity: 0.9; }
@@ -226,7 +230,7 @@
     max-width: 56ch;
   }
 
-  .experience-row__tags { justify-content: end; max-width: 22rem; }
+  .experience-row__tags { justify-content: end; }
 
   .experience-row__arrow {
     align-self: center;

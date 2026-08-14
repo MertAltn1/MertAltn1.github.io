@@ -1,18 +1,24 @@
 import { FileText } from 'lucide-react'
 import SectionHeading from '../components/common/SectionHeading'
-import { education, englishJourney } from '../data/education'
+import { education } from '../data/education'
+import { PROGRAM, fill } from '../data/translations'
 import { useLanguage } from '../hooks/useLanguage'
 
 export default function EducationSection() {
-  const { language, t } = useLanguage()
+  const { t } = useLanguage()
   const metrics = [education.gpa, education.ranking, education.ielts, education.expectedGraduation]
   return (
     <section className="section" id="education">
       <div className="container">
         <SectionHeading
           eyebrow={t.education.eyebrow}
-          title={language === 'tr' ? 'Bilkent Üniversitesi' : education.institution}
-          text={`${language === 'tr' ? 'Bilgisayar Teknolojisi ve Bilişim Sistemleri Lisans Programı (CTIS)' : education.program} · ${t.education.status} · ${t.education.since} ${education.startYear} · ${education.location}`}
+          title={t.education.institution}
+          text={[
+            PROGRAM,
+            t.education.status,
+            fill(t.education.since, { year: education.startYear }),
+            education.location,
+          ].join(' · ')}
         />
 
         <div className="metric-row">
@@ -37,7 +43,7 @@ export default function EducationSection() {
           <div>
             <h3 className="subheading">{t.education.english}</h3>
             <ol className="timeline">
-              {(language === 'tr' ? t.education.journey : englishJourney).map((step) => (
+              {t.education.journey.map((step) => (
                 <li className="timeline__item" key={step.title}>
                   <strong>{step.title}</strong>
                   <p>{step.text}</p>

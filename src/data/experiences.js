@@ -18,10 +18,10 @@ export const experiences = [
     technologies: ['End-to-End Development', 'Systems Engineering', 'Software Architecture', 'System Integration'],
     note: 'Project scope and technical implementation details are omitted due to defense-industry confidentiality requirements.',
     tr: {
-      role: 'Yazılım Mühendisi Stajyeri', period: 'Temmuz 2026', location: 'İstanbul', type: 'Yüz yüze staj',
-      summary: 'Bir savunma teknolojileri ortamında kurum içi bir sistemin uçtan uca geliştirilmesine katkı sağladım.',
-      highlights: ['Kurum içi bir yazılım sisteminin analiz, geliştirme, doğrulama ve teslim aşamalarında çalıştım', 'Güvenilirlik ve operasyonel kullanıma odaklanan sistem çözümleri geliştirdim', 'Sıkı gizlilik gereksinimlerine uyarak mühendislik ve bilgi sistemleri iş akışlarında görev aldım'],
-      note: 'Proje kapsamı ve teknik uygulama ayrıntıları savunma sanayii gizlilik gereksinimleri nedeniyle paylaşılmamıştır.',
+      role: 'Yazılım Mühendisliği Stajyeri', period: 'Temmuz 2026', location: 'İstanbul', type: 'İş yerinde staj',
+      summary: 'Savunma sanayiinde kurum içi bir sistemin uçtan uca geliştirilmesinde görev aldım.',
+      highlights: ['Kurum içi bir yazılım sisteminin analiz, geliştirme, doğrulama ve teslim aşamalarında çalıştım', 'Sahada gerçekten kullanılacak, güvenilirliği önde tutan sistem çözümleri geliştirdim', 'Sıkı gizlilik kurallarına uyarak mühendislik ve bilgi sistemleri ekiplerinin iş akışına dahil oldum'],
+      note: 'Projenin kapsamına ve teknik ayrıntılarına savunma sanayii gizlilik kuralları gereği girmiyorum.',
     },
   },
   {
@@ -41,9 +41,9 @@ export const experiences = [
     ],
     technologies: ['Playwright', 'JavaScript', 'Node.js', 'CRM Testing'],
     tr: {
-      role: 'Yazılım Mühendisi Stajyeri', period: 'Haziran 2026', location: 'İstanbul', type: 'Yüz yüze staj',
-      summary: 'Aktif olarak kullanılan Turkcell iş akışları için Playwright ile üretim odaklı bir UI test otomasyon sistemi geliştirdim.',
-      highlights: ['Tekrarlanabilir test senaryolarını otomatik çalıştıran kod tabanlı UI testleri geliştirdim', 'Kullanıcı etkileşimlerini, sayfa geçişlerini, aramaları ve beklenen sonuç kontrollerini otomatikleştirdim', 'Aktif kullanılan bir sistemde sürdürülebilir testleri destekleyen yeniden kullanılabilir JavaScript yardımcıları oluşturdum'],
+      role: 'Yazılım Mühendisliği Stajyeri', period: 'Haziran 2026', location: 'İstanbul', type: 'İş yerinde staj',
+      summary: 'Turkcell’in aktif kullandığı iş akışları için Playwright ile arayüz test otomasyonu kurdum.',
+      highlights: ['Tekrar eden senaryoları kendi kendine çalıştıran kod tabanlı arayüz testleri yazdım', 'Kullanıcı etkileşimlerini, sayfa geçişlerini, aramaları ve beklenen sonuç kontrollerini otomatikleştirdim', 'Testlerin zamanla bakımını kolaylaştırmak için yeniden kullanılabilir JavaScript yardımcıları çıkardım'],
     },
   },
   {
@@ -63,9 +63,9 @@ export const experiences = [
     ],
     technologies: ['RHEL 8.10', 'Linux', 'SSH', 'SELinux', 'LVM'],
     tr: {
-      role: 'Yazılım Mühendisi Stajyeri', period: 'Ocak 2026', location: 'Ankara', type: 'Yüz yüze staj',
-      summary: 'Red Hat Enterprise Linux sunucular üzerinde güvenli erişim, yetkilendirme ve depolama yönetimine odaklanan sistem mühendisliği görevleri gerçekleştirdim.',
-      highlights: ['RHEL sunucularda kullanıcı, grup ve erişim yetkilerini yönettim', 'SSH erişimini yapılandırdım ve güvenli dosya sistemi izinleri uyguladım', 'SELinux ile LVM tabanlı disk ve mantıksal birim yönetimi üzerinde çalıştım'],
+      role: 'Yazılım Mühendisliği Stajyeri', period: 'Ocak 2026', location: 'Ankara', type: 'İş yerinde staj',
+      summary: 'Red Hat Enterprise Linux sunucularda güvenli erişim, yetkilendirme ve depolama yönetimi üzerine çalıştım.',
+      highlights: ['RHEL sunucularda kullanıcı, grup ve erişim yetkilerini yönettim', 'SSH erişimini yapılandırdım, dosya sistemi izinlerini güvenli şekilde kurguladım', 'SELinux ve LVM ile disk ve mantıksal birim yönetimi yaptım'],
     },
   },
   {
@@ -83,9 +83,9 @@ export const experiences = [
     ],
     technologies: ['Enterprise Systems', 'Software Processes'],
     tr: {
-      role: 'Yazılım Mühendisi Stajyeri', period: 'Mayıs 2025', type: 'Çevrim içi staj',
-      summary: 'Finans teknolojilerindeki yazılım geliştirme süreçlerini gözlemledim ve yazılım geliştirme yaşam döngüsü hakkında deneyim kazandım.',
-      highlights: ['Finans teknolojisi ekiplerinin projeleri planlamadan teslimata kadar nasıl yönettiğini öğrendim', 'SDLC aşamalarını ve her aşamadaki sorumlulukları inceledim', 'Kurumsal teknoloji ekiplerinde kullanılan Agile ve Scrum yöntemlerini tanıdım'],
+      role: 'Yazılım Mühendisliği Stajyeri', period: 'Mayıs 2025', type: 'Uzaktan staj',
+      summary: 'Finans teknolojilerinde yazılım geliştirme süreçlerini yakından gördüm, yazılım yaşam döngüsü üzerine deneyim kazandım.',
+      highlights: ['Fintek ekiplerinin bir projeyi planlamadan teslimata kadar nasıl yürüttüğünü öğrendim', 'Yazılım yaşam döngüsünün aşamalarını ve her aşamadaki sorumlulukları inceledim', 'Kurumsal ekiplerin kullandığı Agile ve Scrum pratiklerini tanıdım'],
     },
   },
   {
@@ -93,7 +93,7 @@ export const experiences = [
     company: 'DenizBank',
     logo: '/logos/denizbank.svg',
     role: 'Software Engineer Intern',
-    period: 'Dec 2024 – Jan 2025',
+    period: 'Dec 2024',
     type: 'Online internship',
     summary: 'Gained insight into banking technologies, financial systems, and the working practices of enterprise software teams.',
     highlights: [
@@ -103,9 +103,9 @@ export const experiences = [
     ],
     technologies: ['Banking IT', 'Support Workflows'],
     tr: {
-      role: 'Yazılım Mühendisi Stajyeri', period: 'Aralık 2024 – Ocak 2025', type: 'Çevrim içi staj',
-      summary: 'Bankacılık teknolojileri, finansal sistemler ve kurumsal yazılım ekiplerinin çalışma yöntemleri hakkında bilgi edindim.',
-      highlights: ['Modern bankacılık operasyonlarında yazılım ve veri teknolojilerinin rolünü inceledim', 'Temel büyük veri kavramları ve metin madenciliği yaklaşımları üzerinde çalıştım', 'Kurumsal teknoloji ekiplerinin finansal sistemleri ve veri odaklı iş akışlarını nasıl desteklediğini gözlemledim'],
+      role: 'Yazılım Mühendisliği Stajyeri', period: 'Aralık 2024', type: 'Uzaktan staj',
+      summary: 'Bankacılık teknolojileri, finansal sistemler ve kurumsal yazılım ekiplerinin nasıl çalıştığı üzerine eğitim aldım.',
+      highlights: ['Bankacılık operasyonlarında yazılımın ve veri teknolojilerinin rolünü inceledim', 'Büyük veri ve metin madenciliğinin temellerine giriş yaptım', 'Kurumsal teknoloji ekiplerinin finansal sistemleri nasıl ayakta tuttuğunu gözlemledim'],
     },
   },
 ]
