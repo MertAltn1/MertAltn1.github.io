@@ -252,13 +252,7 @@
       height: 28px;
     }
 
-    .language-toggle {
-      padding-inline: 0.25rem;
-    }
 
-    .language-toggle button {
-      min-width: 22px;
-    }
 
     .footer-grid { gap: var(--space-5); }
 

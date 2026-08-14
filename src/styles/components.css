@@ -1,31 +1,7 @@
 @layer components {
-  .language-toggle {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.2rem;
-    min-height: 36px;
-    padding-inline: 0.45rem;
-    border: var(--hairline) solid var(--border);
-    border-radius: var(--radius);
-    color: var(--muted);
-    background: color-mix(in srgb, var(--bg) 76%, transparent);
-    font-family: var(--font-mono);
-    font-size: var(--text-2xs);
-  }
 
-  .language-toggle button {
-    min-width: 25px;
-    min-height: 30px;
-    color: var(--muted);
-    font-weight: 500;
-  }
 
-  .language-toggle button[aria-pressed='true'] {
-    color: var(--heading);
-    font-weight: 700;
-  }
 
-  .language-toggle button:hover { color: var(--accent); }
   /* --- Buttons -------------------------------------------------------------- */
 
   .button {

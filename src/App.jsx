@@ -1,7 +1,6 @@
 import { lazy, Suspense } from 'react'
 import { HashRouter, Route, Routes } from 'react-router-dom'
 import { ThemeProvider } from './context/ThemeContext'
-import { LanguageProvider } from './context/LanguageContext'
 import MainLayout from './layouts/MainLayout'
 import HomePage from './pages/HomePage'
 
@@ -13,7 +12,6 @@ const NotFoundPage = lazy(() => import('./pages/NotFoundPage'))
 export default function App() {
   return (
     <ThemeProvider>
-      <LanguageProvider>
       <HashRouter>
         <Suspense fallback={<div className="route-loader">Loading…</div>}>
           <Routes>
@@ -26,7 +24,6 @@ export default function App() {
           </Routes>
         </Suspense>
       </HashRouter>
-      </LanguageProvider>
     </ThemeProvider>
   )
 }

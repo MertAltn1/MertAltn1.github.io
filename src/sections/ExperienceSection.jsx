@@ -3,23 +3,20 @@ import { Link } from 'react-router-dom'
 import CompanyLogo from '../components/common/CompanyLogo'
 import SectionHeading from '../components/common/SectionHeading'
 import { experiences } from '../data/experiences'
-import { useLanguage } from '../hooks/useLanguage'
+import { copy } from '../data/copy'
 
 export default function ExperienceSection() {
-  const { t, localize } = useLanguage()
   return (
     <section className="section section--tint" id="experience">
       <div className="container">
         <SectionHeading
-          eyebrow={t.experience.eyebrow}
-          title={t.experience.title}
-          text={t.experience.text}
+          eyebrow={copy.experience.eyebrow}
+          title={copy.experience.title}
+          text={copy.experience.text}
         />
 
         <ol className="experience-list">
-          {experiences.map((rawItem) => {
-            const item = localize(rawItem)
-            return (
+          {experiences.map((item) => (
             <li key={item.slug}>
               <Link className="experience-row" to={`/experience/${item.slug}`}>
                 <div className="experience-row__stamp">
@@ -45,12 +42,11 @@ export default function ExperienceSection() {
                 <ArrowUpRight className="experience-row__arrow" size={18} aria-hidden="true" />
               </Link>
             </li>
-            )
-          })}
+          ))}
         </ol>
 
         <p className="experience-continuation mono">
-          {t.experience.continued}
+          {copy.experience.continued}
         </p>
       </div>
     </section>

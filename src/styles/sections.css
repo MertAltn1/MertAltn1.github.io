@@ -70,6 +70,10 @@
     flex-shrink: 0;
   }
 
+  /* Icon-only social links sit slightly apart from the labelled items */
+  .hero__meta-icon { margin-left: calc(var(--space-2) * -1); }
+  .hero__meta-icon:hover svg { color: var(--heading); }
+
   /* Flex (not justify-self) so the figure can still stretch to the column width */
   .hero__portrait {
     --portrait-w: 340px;
@@ -82,7 +86,12 @@
   /* One width for both children, so the quote's edges line up with the photo */
   .hero__portrait > * { width: min(100%, var(--portrait-w)); }
 
+  /*
+   * Quote marks come from CSS rather than the data, so the strings in
+   * quote.js stays clean text.
+   */
   .hero__quote {
+    quotes: '“' '”';
     padding-left: var(--space-4);
     border-left: 2px solid var(--accent);
     font-size: var(--text-sm);
@@ -91,6 +100,9 @@
     color: var(--muted);
     text-wrap: pretty;
   }
+
+  .hero__quote::before { content: open-quote; }
+  .hero__quote::after { content: close-quote; }
 
   @media (max-width: 880px) {
     .hero__grid {

@@ -1,5 +1,5 @@
 // Facts only. Every label and sentence around these numbers lives in
-// src/data/translations.js so both languages stay in sync.
+// src/data/copy.js.
 export const education = {
   location: 'Ankara, Türkiye',
   startYear: '2023',

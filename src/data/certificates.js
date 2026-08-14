@@ -8,7 +8,6 @@ export const certificates = [
     description: 'Software development engineering bootcamp run with ACM Bilkent and the Amazon Women in Engineering community.',
     preview: '/certificates/preview/amazon-university-engagement-bootcamp.jpg',
     file: '/certificates/amazon-university-engagement-bootcamp.pdf',
-    tr: { detail: '2025 dönemi', description: 'ACM Bilkent ve Amazon Women in Engineering topluluğu iş birliğiyle yürütülen yazılım geliştirme mühendisliği bootcamp’i.' },
   },
   {
     title: 'Temel Linux 401',
@@ -17,7 +16,6 @@ export const certificates = [
     description: 'Advanced level of the Gelecegi Yazanlar Linux track, completed with an exam.',
     preview: '/certificates/preview/turkcell-linux-401.jpg',
     file: '/certificates/turkcell-linux-401.pdf',
-    tr: { detail: 'Ocak 2026', description: 'Geleceği Yazanlar Linux eğitiminin sınavla tamamlanan ileri seviyesi.' },
   },
   {
     title: 'Temel Linux 201',
@@ -26,7 +24,6 @@ export const certificates = [
     description: 'Intermediate Linux administration: permissions, processes, and system services.',
     preview: '/certificates/preview/turkcell-linux-201.jpg',
     file: '/certificates/turkcell-linux-201.pdf',
-    tr: { detail: 'Ocak 2026', description: 'İzinler, süreçler ve sistem servislerini kapsayan orta seviye Linux yönetimi.' },
   },
   {
     title: 'Temel Linux 101',
@@ -35,7 +32,6 @@ export const certificates = [
     description: 'Linux fundamentals: shell, filesystem, and core administration commands.',
     preview: '/certificates/preview/turkcell-linux-101.jpg',
     file: '/certificates/turkcell-linux-101.pdf',
-    tr: { detail: 'Ocak 2026', description: 'Kabuk, dosya sistemi ve temel yönetim komutlarıyla Linux’un temelleri.' },
   },
   {
     title: 'FirstTech Online Internship Program',
@@ -44,7 +40,6 @@ export const certificates = [
     description: 'Three-week program on enterprise systems and software delivery processes.',
     preview: '/certificates/preview/intertech-firsttech.jpg',
     file: '/certificates/intertech-firsttech.pdf',
-    tr: { detail: '5–23 Mayıs 2025', description: 'Kurumsal sistemler ve yazılım teslim süreçleri üzerine üç haftalık staj programı.' },
   },
   {
     title: 'Denizaşırı Online Internship Program',
@@ -53,7 +48,6 @@ export const certificates = [
     description: 'Structured training on banking IT infrastructure and support workflows.',
     preview: '/certificates/preview/denizbank-denizasiri.jpg',
     file: '/certificates/denizbank-denizasiri.pdf',
-    tr: { detail: 'Aralık 2024 – Ocak 2025', description: 'Bankacılık BT altyapısı ve destek süreçleri üzerine yapılandırılmış eğitim programı.' },
   },
   {
     title: 'Python Camp',
@@ -62,13 +56,11 @@ export const certificates = [
     description: 'Three-session hands-on Python programming camp.',
     preview: '/certificates/preview/ieee-bilkent-python-camp.jpg',
     file: '/certificates/ieee-bilkent-python-camp.pdf',
-    tr: { detail: 'Eylül–Ekim 2025', description: 'Üç oturum süren, uygulama ağırlıklı Python programlama kampı.' },
   },
   {
     title: 'Deep Learning Project Camp',
     issuer: 'Akbank · Global AI Hub',
     description: 'Applied deep learning program completed with a graded end-of-camp project.',
     repo: 'https://github.com/MertAltn1/GlobalAIHub_BootCamp_Project_Akbank',
-    tr: { description: 'Değerlendirmeye giren bir bitirme projesiyle tamamladığım uygulamalı derin öğrenme programı.' },
   },
 ]

@@ -3,23 +3,20 @@ import { Link } from 'react-router-dom'
 import CompanyLogo from '../components/common/CompanyLogo'
 import SectionHeading from '../components/common/SectionHeading'
 import { projects } from '../data/projects'
-import { useLanguage } from '../hooks/useLanguage'
+import { copy } from '../data/copy'
 
 export default function ProjectsSection() {
-  const { t, localize } = useLanguage()
   return (
     <section className="section" id="projects">
       <div className="container">
         <SectionHeading
-          eyebrow={t.projects.eyebrow}
-          title={t.projects.title}
-          text={t.projects.text}
+          eyebrow={copy.projects.eyebrow}
+          title={copy.projects.title}
+          text={copy.projects.text}
         />
 
         <div className="project-grid">
-          {projects.map((rawProject, index) => {
-            const project = localize(rawProject)
-            return (
+          {projects.map((project, index) => (
             <Link className="card project-card" to={`/projects/${project.slug}`} key={project.slug}>
               <div className="project-card__top mono">
                 <span>{project.category}</span>
@@ -46,8 +43,7 @@ export default function ProjectsSection() {
 
               <ArrowUpRight className="card-arrow" size={18} aria-hidden="true" />
             </Link>
-            )
-          })}
+          ))}
         </div>
       </div>
     </section>

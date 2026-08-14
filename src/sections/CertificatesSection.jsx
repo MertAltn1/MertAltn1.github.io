@@ -2,23 +2,20 @@ import { FileText } from 'lucide-react'
 import { Github } from '../components/common/BrandIcons'
 import SectionHeading from '../components/common/SectionHeading'
 import { certificates } from '../data/certificates'
-import { useLanguage } from '../hooks/useLanguage'
+import { copy } from '../data/copy'
 
 export default function CertificatesSection() {
-  const { t, localize } = useLanguage()
   return (
     <section className="section section--tint" id="certificates">
       <div className="container">
         <SectionHeading
-          eyebrow={t.certificates.eyebrow}
-          title={t.certificates.title}
-          text={t.certificates.text}
+          eyebrow={copy.certificates.eyebrow}
+          title={copy.certificates.title}
+          text={copy.certificates.text}
         />
 
         <ul className="certificate-grid">
-          {certificates.map((rawCertificate) => {
-            const certificate = localize(rawCertificate)
-            return (
+          {certificates.map((certificate) => (
             <li className="certificate-card" key={certificate.title}>
               {certificate.preview && (
                 <a
@@ -26,11 +23,11 @@ export default function CertificatesSection() {
                   href={certificate.file}
                   target="_blank"
                   rel="noreferrer"
-                  aria-label={`${t.certificates.open} ${certificate.title}`}
+                  aria-label={`${copy.certificates.open} ${certificate.title}`}
                 >
                   <img src={certificate.preview} alt="" loading="lazy" decoding="async" />
                   <span className="certificate-card__zoom">
-                    <FileText size={14} aria-hidden="true" />{t.certificates.pdf}
+                    <FileText size={14} aria-hidden="true" />{copy.certificates.pdf}
                   </span>
                 </a>
               )}
@@ -44,14 +41,13 @@ export default function CertificatesSection() {
                   {certificate.detail && <span className="tag">{certificate.detail}</span>}
                   {certificate.repo && (
                     <a className="text-link" href={certificate.repo} target="_blank" rel="noreferrer">
-                      <Github size={14} aria-hidden="true" />{t.certificates.repo}
+                      <Github size={14} aria-hidden="true" />{copy.certificates.repo}
                     </a>
                   )}
                 </div>
               </div>
             </li>
-            )
-          })}
+          ))}
         </ul>
       </div>
     </section>

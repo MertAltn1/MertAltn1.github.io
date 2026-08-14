@@ -5,7 +5,7 @@ import CompanyLogo from '../components/common/CompanyLogo'
 import { projects } from '../data/projects'
 import { useSectionNav } from '../hooks/useSectionNav'
 import NotFoundPage from './NotFoundPage'
-import { useLanguage } from '../hooks/useLanguage'
+import { copy } from '../data/copy'
 
 // Work carried out inside client or employer systems — these case studies stay
 // deliberately high level.
@@ -14,16 +14,14 @@ const CONFIDENTIAL_SLUGS = ['playwright-automation']
 export default function ProjectDetailPage() {
   const { slug } = useParams()
   const goToSection = useSectionNav()
-  const { t, localize } = useLanguage()
-  const rawProject = projects.find((item) => item.slug === slug)
-  const project = rawProject && localize(rawProject)
+  const project = projects.find((item) => item.slug === slug)
 
   if (!project) return <NotFoundPage />
 
   return (
     <article className="detail container">
       <button className="back-link" type="button" onClick={() => goToSection('projects')}>
-        <ArrowLeft size={16} aria-hidden="true" />{t.projects.all}
+        <ArrowLeft size={16} aria-hidden="true" />{copy.projects.all}
       </button>
 
       <header className="detail__header">
@@ -35,10 +33,10 @@ export default function ProjectDetailPage() {
 
       <div className="detail__grid">
         <section className="detail__body">
-          <h2 className="subheading">{t.projects.challenge}</h2>
+          <h2 className="subheading">{copy.projects.challenge}</h2>
           <p className="detail__prose">{project.challenge}</p>
 
-          <h2 className="subheading">{t.projects.outcomes}</h2>
+          <h2 className="subheading">{copy.projects.outcomes}</h2>
           <ul className="detail__list">
             {project.highlights.map((highlight) => (
               <li key={highlight}>{highlight}</li>
@@ -47,7 +45,7 @@ export default function ProjectDetailPage() {
         </section>
 
         <aside className="detail__aside">
-          <h2 className="subheading">{t.projects.technology}</h2>
+          <h2 className="subheading">{copy.projects.technology}</h2>
           {project.platform && (
             <CompanyLogo
               name={project.platform.name}
@@ -62,12 +60,12 @@ export default function ProjectDetailPage() {
           </div>
           {project.repo && (
             <a className="text-link detail__repo" href={project.repo} target="_blank" rel="noreferrer">
-              <Github size={15} aria-hidden="true" />{t.projects.source}
+              <Github size={15} aria-hidden="true" />{copy.projects.source}
             </a>
           )}
           {CONFIDENTIAL_SLUGS.includes(project.slug) && (
             <p className="detail__note">
-              {t.projects.confidential}
+              {copy.projects.confidential}
             </p>
           )}
         </aside>

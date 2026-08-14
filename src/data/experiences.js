@@ -17,12 +17,6 @@ export const experiences = [
     ],
     technologies: ['End-to-End Development', 'Systems Engineering', 'Software Architecture', 'System Integration'],
     note: 'Project scope and technical implementation details are omitted due to defense-industry confidentiality requirements.',
-    tr: {
-      role: 'Yazılım Mühendisliği Stajyeri', period: 'Temmuz 2026', location: 'İstanbul', type: 'İş yerinde staj',
-      summary: 'Savunma sanayiinde kurum içi bir sistemin uçtan uca geliştirilmesinde görev aldım.',
-      highlights: ['Kurum içi bir yazılım sisteminin analiz, geliştirme, doğrulama ve teslim aşamalarında çalıştım', 'Sahada gerçekten kullanılacak, güvenilirliği önde tutan sistem çözümleri geliştirdim', 'Sıkı gizlilik kurallarına uyarak mühendislik ve bilgi sistemleri ekiplerinin iş akışına dahil oldum'],
-      note: 'Projenin kapsamına ve teknik ayrıntılarına savunma sanayii gizlilik kuralları gereği girmiyorum.',
-    },
   },
   {
     slug: 'turkcell-test-automation',
@@ -40,11 +34,6 @@ export const experiences = [
       'Built reusable JavaScript helpers to support maintainable testing across an actively used system',
     ],
     technologies: ['Playwright', 'JavaScript', 'Node.js', 'CRM Testing'],
-    tr: {
-      role: 'Yazılım Mühendisliği Stajyeri', period: 'Haziran 2026', location: 'İstanbul', type: 'İş yerinde staj',
-      summary: 'Turkcell’in aktif kullandığı iş akışları için Playwright ile arayüz test otomasyonu kurdum.',
-      highlights: ['Tekrar eden senaryoları kendi kendine çalıştıran kod tabanlı arayüz testleri yazdım', 'Kullanıcı etkileşimlerini, sayfa geçişlerini, aramaları ve beklenen sonuç kontrollerini otomatikleştirdim', 'Testlerin zamanla bakımını kolaylaştırmak için yeniden kullanılabilir JavaScript yardımcıları çıkardım'],
-    },
   },
   {
     slug: 'turkcell-linux-operations',
@@ -62,11 +51,6 @@ export const experiences = [
       'Worked with SELinux and LVM-based disk and logical volume management',
     ],
     technologies: ['RHEL 8.10', 'Linux', 'SSH', 'SELinux', 'LVM'],
-    tr: {
-      role: 'Yazılım Mühendisliği Stajyeri', period: 'Ocak 2026', location: 'Ankara', type: 'İş yerinde staj',
-      summary: 'Red Hat Enterprise Linux sunucularda güvenli erişim, yetkilendirme ve depolama yönetimi üzerine çalıştım.',
-      highlights: ['RHEL sunucularda kullanıcı, grup ve erişim yetkilerini yönettim', 'SSH erişimini yapılandırdım, dosya sistemi izinlerini güvenli şekilde kurguladım', 'SELinux ve LVM ile disk ve mantıksal birim yönetimi yaptım'],
-    },
   },
   {
     slug: 'intertech-firsttech',
@@ -82,11 +66,6 @@ export const experiences = [
       'Gained familiarity with Agile and Scrum methods used by enterprise technology teams',
     ],
     technologies: ['Enterprise Systems', 'Software Processes'],
-    tr: {
-      role: 'Yazılım Mühendisliği Stajyeri', period: 'Mayıs 2025', type: 'Uzaktan staj',
-      summary: 'Finans teknolojilerinde yazılım geliştirme süreçlerini yakından gördüm, yazılım yaşam döngüsü üzerine deneyim kazandım.',
-      highlights: ['Fintek ekiplerinin bir projeyi planlamadan teslimata kadar nasıl yürüttüğünü öğrendim', 'Yazılım yaşam döngüsünün aşamalarını ve her aşamadaki sorumlulukları inceledim', 'Kurumsal ekiplerin kullandığı Agile ve Scrum pratiklerini tanıdım'],
-    },
   },
   {
     slug: 'denizbank-denizasiri',
@@ -102,10 +81,5 @@ export const experiences = [
       'Observed how corporate technology teams support financial systems and data-driven workflows',
     ],
     technologies: ['Banking IT', 'Support Workflows'],
-    tr: {
-      role: 'Yazılım Mühendisliği Stajyeri', period: 'Aralık 2024', type: 'Uzaktan staj',
-      summary: 'Bankacılık teknolojileri, finansal sistemler ve kurumsal yazılım ekiplerinin nasıl çalıştığı üzerine eğitim aldım.',
-      highlights: ['Bankacılık operasyonlarında yazılımın ve veri teknolojilerinin rolünü inceledim', 'Büyük veri ve metin madenciliğinin temellerine giriş yaptım', 'Kurumsal teknoloji ekiplerinin finansal sistemleri nasıl ayakta tuttuğunu gözlemledim'],
-    },
   },
 ]
