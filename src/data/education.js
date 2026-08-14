@@ -6,7 +6,6 @@ export const education = {
   expectedGraduation: '2028',
   gpa: '3.79',
   latestTermGpa: '3.79',
-  ranking: '9 / 91',
   // Mean of the four section scores (6.5 + 5.5 + 6.0 + 6.5) / 4, July 2024.
   // The Test Report Form rounds this to an overall band of 6.0, so the label
   // beside this number reads "average", not "overall".

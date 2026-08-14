@@ -6,7 +6,9 @@ import { useLanguage } from '../hooks/useLanguage'
 
 export default function EducationSection() {
   const { t } = useLanguage()
-  const metrics = [education.gpa, education.ranking, education.ielts, education.expectedGraduation]
+  // Order matches t.education.metrics; the scholarship value is localised too
+  // ("Top 2%" / "İlk %2"), so it comes from the translation table, not the data.
+  const metrics = [education.gpa, t.education.scholarship, education.ielts, education.expectedGraduation]
   return (
     <section className="section" id="education">
       <div className="container">

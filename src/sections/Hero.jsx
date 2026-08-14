@@ -1,4 +1,4 @@
-import { ArrowDown, ArrowUpRight, Download, GraduationCap, MapPin } from 'lucide-react'
+import { ArrowDown, ArrowUpRight, Award, Download, GraduationCap, MapPin } from 'lucide-react'
 import Avatar from '../components/common/Avatar'
 import { Github, Linkedin } from '../components/common/BrandIcons'
 import Button from '../components/common/Button'
@@ -36,6 +36,7 @@ export default function Hero() {
           <div className="hero__meta">
             <span><MapPin size={15} aria-hidden="true" />{site.location}</span>
             <span><GraduationCap size={15} aria-hidden="true" />{t.hero.gpa} {education.gpa} / 4.00</span>
+            <span><Award size={15} aria-hidden="true" />{t.hero.scholarship}</span>
             <a href={site.github} target="_blank" rel="noreferrer">
               <Github size={15} aria-hidden="true" />{site.githubHandle}
             </a>
