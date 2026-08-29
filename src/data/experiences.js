@@ -18,9 +18,9 @@ export const experiences = [
   {
     slug: 'technarts-frontend-engineering',
     company: 'Technarts',
-    role: 'Frontend Engineer Intern',
+    role: 'Software Developer',
     period: 'August 2026',
-    logo: '/logos/technarts.png',
+    logo: '/logos/technarts-wordmark.svg',
     location: 'Ankara',
     type: 'On-site internship',
     featured: true,
