@@ -259,6 +259,18 @@
     opacity: 0.8;
   }
 
+  /* Technarts uses a wide symbol + wordmark lockup. Give it enough horizontal
+   * room while keeping the same visual height and alignment as every mark. */
+  .company-logo--technarts {
+    --logo-w: 132px;
+    --logo-h: 24px;
+  }
+
+  .company-logo--lg.company-logo--technarts {
+    --logo-w: 180px;
+    --logo-h: 34px;
+  }
+
   /* --- Cards ---------------------------------------------------------------- */
 
   .card {

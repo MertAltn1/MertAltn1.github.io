@@ -21,7 +21,7 @@ export default function ExperienceSection() {
               <Link className="experience-row" to={`/experience/${item.slug}`}>
                 <div className="experience-row__stamp">
                   <span className="experience-row__period mono">{item.period}</span>
-                  <CompanyLogo name={item.company} src={item.logo} />
+                  <CompanyLogo name={item.company} src={item.logo} className={item.logoClassName} />
                 </div>
 
                 <div className="experience-row__body">

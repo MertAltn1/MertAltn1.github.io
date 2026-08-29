@@ -21,7 +21,11 @@ export default function ExperienceDetailPage() {
 
       <header className="detail__header">
         <span className="eyebrow">{item.company} · {item.period}</span>
-        <CompanyLogo name={item.company} src={item.logo} className="company-logo--lg" />
+        <CompanyLogo
+          name={item.company}
+          src={item.logo}
+          className={`company-logo--lg ${item.logoClassName ?? ''}`}
+        />
         <h1>{item.role}</h1>
         <p className="detail__lead">{item.summary}</p>
         <p className="detail__meta mono">
