@@ -784,7 +784,8 @@
     }
 
     .experience-row__stamp .company-logo--technarts {
-      --logo-w: 108px;
+      --logo-w: 96px;
+      --logo-h: 24px;
     }
 
     .experience-row__summary { max-width: none; }
