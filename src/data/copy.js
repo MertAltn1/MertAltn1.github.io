@@ -42,7 +42,7 @@ export const copy = {
   experience: {
     eyebrow: 'Experience',
     title: 'Learning through real systems',
-    text: 'Five internships across defense, telecom, and banking technology — each one a system that already had users, constraints, and consequences.',
+    text: 'Professional experience and development programs across product engineering, defense, telecom, and banking technology — each one an opportunity to work with real systems, constraints, and consequences.',
     continued: 'Still going — new experience will be added here.',
     all: 'All experience',
     contribution: 'What I did',

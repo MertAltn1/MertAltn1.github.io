@@ -1,6 +1,39 @@
 // Ordered newest first. Dates follow the CV.
 export const experiences = [
   {
+    slug: 'commencis-spring-boot-development-camp',
+    company: 'Commencis',
+    role: 'Spring Boot Development Camp',
+    period: 'September 2026',
+    type: 'Development camp',
+    featured: true,
+    summary: 'Participated in the Commencis Spring Boot Development Camp, focusing on backend development with Java and the Spring Boot ecosystem.',
+    highlights: [
+      'Strengthened backend development foundations with Java and Spring Boot',
+      'Worked through a structured development camp focused on the Spring ecosystem',
+    ],
+    technologies: ['Java', 'Spring Boot'],
+  },
+  {
+    slug: 'technarts-frontend-engineering',
+    company: 'Technarts',
+    role: 'Frontend Engineer Intern',
+    period: 'August 2026',
+    location: 'Ankara',
+    type: 'On-site internship',
+    featured: true,
+    summary: 'Developed an internal real-time messaging application with React, Django REST Framework, PostgreSQL, and WebSockets.',
+    highlights: [
+      'Built a component-based messaging interface with React',
+      'Developed REST API endpoints with Django REST Framework for authentication, users, chats, messages, and profile management',
+      'Integrated PostgreSQL for persistent user, conversation, and message data',
+      'Implemented token-based authentication and protected API access',
+      'Added real-time messaging with Django Channels and WebSockets',
+      'Developed user search, profile photo upload, conversation management, and chat settings',
+    ],
+    technologies: ['React', 'Django', 'DRF', 'PostgreSQL', 'WebSocket', 'Django Channels'],
+  },
+  {
     slug: 'baykar-software-engineering',
     company: 'Baykar Technologies',
     logo: '/logos/baykar.svg',
