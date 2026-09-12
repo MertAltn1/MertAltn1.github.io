@@ -16,7 +16,28 @@ const DEMO_PRODUCTS = {
     6: { title: "Ekici Beyaz Peynir Kg", price: 149.9, image_path: "product-6.jpg", stock: 6 },
 };
 
-const demoCart = {};   // { productId: quantity }
+// { productId: quantity }
+// Kept in sessionStorage, not just memory: these are separate static HTML
+// pages, so adding from the dashboard and then opening cart.html is a full
+// page load. An in-memory object was emptied on every navigation, which made
+// the cart always look empty.
+const CART_KEY = "demoCart";
+
+function loadCart() {
+    try {
+        return JSON.parse(sessionStorage.getItem(CART_KEY)) || {};
+    } catch (e) {
+        return {};
+    }
+}
+
+function saveCart() {
+    try {
+        sessionStorage.setItem(CART_KEY, JSON.stringify(demoCart));
+    } catch (e) { /* private mode — the cart just will not survive navigation */ }
+}
+
+const demoCart = loadCart();
 
 function readCart() {
     return Object.entries(demoCart).map(([id, quantity]) => ({
@@ -49,6 +70,7 @@ window.fetch = async function (url, options = {}) {
         }
 
         demoCart[productId] = current + 1;
+        saveCart();
         return jsonResponse({ success: true });
     }
 
@@ -56,6 +78,7 @@ window.fetch = async function (url, options = {}) {
         const { productId } = JSON.parse(options.body);
         if (demoCart[productId] > 1) demoCart[productId] -= 1;
         else delete demoCart[productId];
+        saveCart();
         return jsonResponse({ success: true });
     }
 
@@ -64,6 +87,7 @@ window.fetch = async function (url, options = {}) {
             return jsonResponse({ success: false, message: "Cart is empty." });
         }
         for (const id of Object.keys(demoCart)) delete demoCart[id];
+        saveCart();
         return jsonResponse({ success: true });
     }
 

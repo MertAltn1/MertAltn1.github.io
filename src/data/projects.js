@@ -48,6 +48,14 @@ export const projects = [
       'Built as a 4-person team project for CTIS256',
     ],
     technologies: ['Node.js', 'Express', 'EJS', 'MySQL'],
+    shots: [
+      { src: '/projects/marketplace-shots/dashboard-consumer.jpg', caption: 'Consumer dashboard — browsing discounted stock' },
+      { src: '/projects/marketplace-shots/cart.jpg', caption: 'Cart with per-item quantity controls and an order summary' },
+      { src: '/projects/marketplace-shots/dashboard-market.jpg', caption: 'Market dashboard — the products a market has listed' },
+      { src: '/projects/marketplace-shots/edit-product.jpg', caption: 'Editing a product and its discounted price' },
+      { src: '/projects/marketplace-shots/profile-market.jpg', caption: 'Market profile and account details' },
+      { src: '/projects/marketplace-shots/register-market.jpg', caption: 'Market sign-up — part of the real app, not wired up in the demo' },
+    ],
   },
   {
     slug: 'playwright-automation',

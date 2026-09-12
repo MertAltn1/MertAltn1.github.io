@@ -11,7 +11,7 @@ async function fetchItems() {
         <div id="emptyCart">
           <img id="empty_icon" src="icon/empty_cart.png">
           <h2>Your cart is empty!</h2>
-          <a href="./index.html" id="back-btn">Back to dashboard</a>
+          <a href="./dashboard-consumer.html" id="back-btn">Back to dashboard</a>
         </div>
       `
     } else {
@@ -56,7 +56,7 @@ async function fetchItems() {
       const total = data.reduce((sum, item) => sum + item.quantity * item.price, 0)
 
       html += `
-      <div id="back-div"><a href="./index.html" id="back-btn">Back to dashboard</a></div>
+      <div id="back-div"><a href="./dashboard-consumer.html" id="back-btn">Back to dashboard</a></div>
         </div>
           <div id="total">
             <div class="order_sum">Order Summary</div>
