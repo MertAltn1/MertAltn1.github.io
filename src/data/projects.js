@@ -7,9 +7,6 @@ export const projects = [
     // Static demo build of the real app, served from /public. It ships with
     // VITE_DEMO_MODE=true, so every request is answered by an in-browser mock
     // instead of the Django backend.
-    // The one project with a running demo, so it leads the grid as a wide
-    // card with a screenshot. Everything else stays text-only.
-    cover: '/projects/artsconnect-shots/chat-topics.jpg',
     demo: '/projects/artsconnect/',
     repo: 'https://github.com/MertAltn1/artsconnect',
     summary: 'A real-time company messaging application built with Django REST Framework, React, and WebSockets.',
@@ -23,8 +20,9 @@ export const projects = [
     technologies: ['React', 'Django', 'DRF', 'PostgreSQL', 'WebSocket', 'Django Channels'],
     shots: [
       { src: '/projects/artsconnect-shots/chat-topics.jpg', caption: 'A chat split into topics, each tracking its own unread state' },
-      { src: '/projects/artsconnect-shots/sidebar.jpg', caption: 'Sidebar ordered by activity, with presence and last-message previews' },
-      { src: '/projects/artsconnect-shots/profile.jpg', caption: 'Profile with department, role, team, and total message count' },
+      { src: '/projects/artsconnect-shots/sidebar.jpg', caption: 'Conversations ordered by activity, with presence and last-message previews' },
+      { src: '/projects/artsconnect-shots/profile-teammate.jpg', caption: 'A teammate profile — role, department, team, and total message count' },
+      { src: '/projects/artsconnect-shots/profile-own.jpg', caption: 'Your own profile, opened from the same panel' },
       { src: '/projects/artsconnect-shots/wallpaper.jpg', caption: 'Per-chat wallpaper picker' },
       { src: '/projects/artsconnect-shots/login.jpg', caption: 'Token-authenticated login' },
     ],

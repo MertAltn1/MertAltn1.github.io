@@ -25,20 +25,7 @@ export default function ProjectsSection() {
              * instead, so the card still behaves as one big click target while
              * the action links stay individually clickable.
              */
-            <article
-              className={`card project-card${project.cover ? ' project-card--featured' : ''}`}
-              key={project.slug}
-            >
-              {project.cover && (
-                <img
-                  className="project-card__cover"
-                  src={project.cover}
-                  alt=""
-                  loading="lazy"
-                  decoding="async"
-                />
-              )}
-
+            <article className="card project-card" key={project.slug}>
               <div className="project-card__top mono">
                 <span>{project.category}</span>
                 <span>{String(index + 1).padStart(2, '0')}</span>
