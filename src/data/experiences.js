@@ -21,7 +21,6 @@ export const experiences = [
     role: 'Software Developer',
     period: 'August 2026',
     logo: '/logos/technarts-wordmark.png',
-    logoClassName: 'company-logo--technarts',
     location: 'Ankara',
     type: 'On-site internship',
     featured: true,
