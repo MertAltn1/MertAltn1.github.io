@@ -65,7 +65,7 @@ export default function ProjectDetailPage() {
               <Button href={project.demo} external icon={PlayCircle}>
                 {copy.projects.demo}
               </Button>
-              <p className="detail__note">{copy.projects.demoNote}</p>
+              <p className="detail__note">{project.demoNote ?? copy.projects.demoNote}</p>
             </div>
           )}
 

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Discount Marketplace</title>
+  <link rel="stylesheet" href="./styles/style.css">
+  <link rel="stylesheet" href="./mobile.css">
+</head>
+
+<body>
+  <div class="container">
+    <h1>Welcome to the Sustainable Discount Marketplace</h1>
+    <h3>Please login or register to continue</h3>
+
+    
+
+      
+
+        <form action="/login" onsubmit="return demoDisabled(event)" method="POST" id="login_form">
+          <span id="login_text">Login</span>
+          <div class="input_container">
+            <label for="email">Email:</label>
+            <input type="email" name="email" value="" required>
+          </div>
+          <div class="input_container">
+            <label for="password">Password:</label>
+            <input type="password" name="password" required>
+          </div>
+          <button type="submit">Login</button>
+        </form>
+
+        <div class="links">
+          <div class="link"><a href="dashboard-market.html">View as Market (demo)</a></div>
+          <div class="link"><a href="dashboard-consumer.html">View as Consumer (demo)</a></div>
+        </div>
+        <div class="links">
+          <div class="link">
+            <a href="register-market.html">Register as Market</a>
+          </div>
+          <div class="link">
+            <a href="register-consumer.html">Register as Consumer</a>
+          </div>
+        </div>
+
+  </div>
+  <script src="./demo.js"></script>
+</body>
+
+</html>

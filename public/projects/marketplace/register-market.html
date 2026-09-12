@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Market Register</title>
+  <link rel="stylesheet" href="./styles/market/register-market.css">
+  <link rel="stylesheet" href="./mobile.css">
+</head>
+
+<body>
+  <head>
+    <div class="container">
+
+      
+
+      <form action="/register-market" onsubmit="return demoDisabled(event)" method="POST" id="register_form">
+        <h2>Market Register</h2>
+            <div class="input_container">
+              <label>Email</label>
+              <input type="email" name="email" value="" required>
+            </div>
+            <div class="input_container">
+              <label>Market Name</label>
+              <input type="text" name="marketName" value="" required>
+            </div>
+            <div class="input_container">
+              <label>Password</label>
+              <input type="password" name="password" required>
+            </div>
+            <div class="input_container">
+              <label>City</label>
+              <input type="text" name="city" value="" required>
+            </div>
+            <div class="input_container">
+              <label>District</label>
+              <input type="text" name="district" value="" required>
+            </div>
+            <button type="submit">Register</button>
+            <div class="input_container"><a href="index.html" id="back-btn">Back to login</a></div>
+      </form>
+    </div>
+
+  <script src="./demo.js"></script>
+</body>
+
+</html>

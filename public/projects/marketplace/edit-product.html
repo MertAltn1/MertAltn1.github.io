@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit Product</title>
+  <link rel="stylesheet" href="./styles/edit-product.css" />
+  </style>
+  <link rel="stylesheet" href="./mobile.css">
+</head>
+
+<body>
+
+  <div class="container">
+    
+    
+    <form action="/market/edit-product/1" onsubmit="return demoDisabled(event)" method="post" enctype="multipart/form-data" id="edit_form">
+      <h1>Edit Product</h1>
+      <div class="gray-box">
+        <div class="input_container">
+          <label>Name</label>
+          <input name="name" type="text" value="Sutas Suzme Peynir 250 G" required />
+        </div>
+        <div class="input_container">
+          <label>Stock</label>
+          <input name="stock" type="text" value="12" required />
+        </div>
+        <div class="input_container">
+          <label>Normal Price</label>
+          <input name="normalPrice" type="text" value="89.9" required />
+        </div>
+        <div class="input_container">
+          <label>Discounted Price</label>
+          <input name="discountedPrice" type="text" value="59.9" required />
+        </div>
+        <div class="input_container">
+          <label>Expiration Date</label>
+          <input name="expirationDate" type="date" value="2026-09-30" required />
+        </div>
+        <div >
+          <label>Image:</label>
+          
+            <div><img src="./uploads/product-1.jpg" width="240" /></div>
+          
+          <input name="image" type="file" accept="image/*" />
+          <div>Leave empty to keep current image.</div>
+        </div>
+      </div>
+      <button type="submit" class="black-btn">Update</button>
+    </form>
+    <a href="dashboard-market.html" id="back-btn">Back</a>
+  </div>
+
+  <script src="./demo.js"></script>
+</body>
+
+</html>

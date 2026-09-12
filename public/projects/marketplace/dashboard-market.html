@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Market Dashboard</title>
+  <link rel="stylesheet" href="./styles/market/market-dashboard.css">
+  <link rel="stylesheet" href="./mobile.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="navbar">
+      <a href="index.html" class="link-btn">➜] Logout</a>
+      <a href="profile-market.html" class="link-btn">🌐GreenGrocer Market</a>
+
+    </div>
+    <div class="register">
+      <div class="errors">
+        
+      </div>
+
+      <form action="/market/dashboard" onsubmit="return demoDisabled(event)" method="post" enctype="multipart/form-data" id="register-form">
+        <div class="property">
+          <label for="product-name">Product Name:</label>
+          <input type="text" name="name" id="product-name" value="" placeholder="Product Name" required>
+        </div>
+
+        <div class="property">
+          <label for="product-stock">Stock:</label>
+          <input type="number" name="stock" id="product-stock" value="" placeholder="Stock" required>
+        </div>
+
+        <div class="property">
+          <label for="product-price">Price:</label>
+          <input type="number" name="normalPrice" id="product-price" step="0.01" value="" placeholder="Price" required>
+        </div>
+
+        <div class="property">
+          <label for="product-discounted-price">Discounted Price: </label>
+          <input type="number" name="discountedPrice" id="product-discounted-price" step="0.01" value="" placeholder="Discounted Price"
+            required>
+        </div>
+
+        <div class="property">
+          <label for="product-expiration-date">Expiration Date:</label>
+          <input type="date" name="expirationDate" id="product-expiration-date" value="" required>
+        </div>
+
+        <div class="property">
+          <label for="product-image">Image: </label>
+          <input type="file" name="image" id="product-image" required>
+        </div>
+
+
+        <button type="submit">Add Product</button>
+      </form>
+    </div>
+    <div class="products">
+      
+        <div class="product safe">
+          <div class="img"><img src="./uploads/product-1.jpg" style="height: 200px;"></div>
+          <div class="product-info">
+            <div><span>Name: </span>
+              Sutas Suzme Peynir 250 G
+            </div>
+            <div><span>Stock: </span>
+              12 Remaining
+            </div>
+            <div><span>Price: </span>
+              89.9 tl
+            </div>
+            <div><span>Discounted Price: </span>
+              59.9 tl
+            </div>
+            <div><span>Expiration Date: </span>
+              30.09.2026
+            </div>
+            <div><span>Status: </span>Safe</div>
+            <div class="operations">
+              <a href="edit-product.html" class="operation">Edit</a>
+              <a href="#" onclick="return demoDisabled(event)" class="operation">Delete</a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="product critical">
+          <div class="img"><img src="./uploads/product-2.jpg" style="height: 200px;"></div>
+          <div class="product-info">
+            <div><span>Name: </span>
+              Tahsildaroglu Dilimli Klasik Inek Beyaz Peynir 450 G
+            </div>
+            <div><span>Stock: </span>
+              5 Remaining
+            </div>
+            <div><span>Price: </span>
+              129.9 tl
+            </div>
+            <div><span>Discounted Price: </span>
+              79.9 tl
+            </div>
+            <div><span>Expiration Date: </span>
+              16.09.2026
+            </div>
+            <div><span>Status: </span>About to expire!</div>
+            <div class="operations">
+              <a href="edit-product.html" class="operation">Edit</a>
+              <a href="#" onclick="return demoDisabled(event)" class="operation">Delete</a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="product safe">
+          <div class="img"><img src="./uploads/product-3.jpg" style="height: 200px;"></div>
+          <div class="product-info">
+            <div><span>Name: </span>
+              Migros Suzme Peynir 500 G
+            </div>
+            <div><span>Stock: </span>
+              8 Remaining
+            </div>
+            <div><span>Price: </span>
+              149.9 tl
+            </div>
+            <div><span>Discounted Price: </span>
+              99.9 tl
+            </div>
+            <div><span>Expiration Date: </span>
+              07.10.2026
+            </div>
+            <div><span>Status: </span>Safe</div>
+            <div class="operations">
+              <a href="edit-product.html" class="operation">Edit</a>
+              <a href="#" onclick="return demoDisabled(event)" class="operation">Delete</a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="product expired">
+          <div class="img"><img src="./uploads/product-4.jpg" style="height: 200px;"></div>
+          <div class="product-info">
+            <div><span>Name: </span>
+              Tahsildaroglu Klasik Inek Beyaz Peyniri 500 G
+            </div>
+            <div><span>Stock: </span>
+              3 Remaining
+            </div>
+            <div><span>Price: </span>
+              139.9 tl
+            </div>
+            <div><span>Discounted Price: </span>
+              89.9 tl
+            </div>
+            <div><span>Expiration Date: </span>
+              10.09.2026
+            </div>
+            <div><span>Status: </span>Expired</div>
+            <div class="operations">
+              <a href="edit-product.html" class="operation">Edit</a>
+              <a href="#" onclick="return demoDisabled(event)" class="operation">Delete</a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="product safe">
+          <div class="img"><img src="./uploads/product-5.jpg" style="height: 200px;"></div>
+          <div class="product-info">
+            <div><span>Name: </span>
+              Oznal Dilimli Klasik Beyaz Peynir 450 G
+            </div>
+            <div><span>Stock: </span>
+              10 Remaining
+            </div>
+            <div><span>Price: </span>
+              119.9 tl
+            </div>
+            <div><span>Discounted Price: </span>
+              74.9 tl
+            </div>
+            <div><span>Expiration Date: </span>
+              24.09.2026
+            </div>
+            <div><span>Status: </span>Safe</div>
+            <div class="operations">
+              <a href="edit-product.html" class="operation">Edit</a>
+              <a href="#" onclick="return demoDisabled(event)" class="operation">Delete</a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="product critical">
+          <div class="img"><img src="./uploads/product-6.jpg" style="height: 200px;"></div>
+          <div class="product-info">
+            <div><span>Name: </span>
+              Ekici Beyaz Peynir Kg
+            </div>
+            <div><span>Stock: </span>
+              6 Remaining
+            </div>
+            <div><span>Price: </span>
+              199.9 tl
+            </div>
+            <div><span>Discounted Price: </span>
+              149.9 tl
+            </div>
+            <div><span>Expiration Date: </span>
+              13.09.2026
+            </div>
+            <div><span>Status: </span>About to expire!</div>
+            <div class="operations">
+              <a href="edit-product.html" class="operation">Edit</a>
+              <a href="#" onclick="return demoDisabled(event)" class="operation">Delete</a>
+            </div>
+          </div>
+        </div>
+        
+    </div>
+    <form action="/market/delete-expired" onsubmit="return demoDisabled(event)" method="post" onsubmit="return confirm('Are you sure you want to delete all expired products? This cannot be undone.');">
+        <button id="deleteAllBtn" type="submit" class="black-btn">Delete Expired Products</button>
+    </form>
+  </div>
+  <script src="./demo.js"></script>
+</body>
+
+</html>

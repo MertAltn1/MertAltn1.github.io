@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consumer Register</title>
+    <link rel="stylesheet" href="./styles/consumer/register-consumer.css">
+  <link rel="stylesheet" href="./mobile.css">
+</head>
+<body>
+    <div class="container">
+        
+        <form action="/register-consumer" onsubmit="return demoDisabled(event)" method="POST" id="register_form">
+            <h2>Consumer Register</h2>
+                <div class="input_container">
+                    <label>Email</label>
+                    <input type="email" name="email" value="" required>
+                </div>
+                <div class="input_container">
+                    <label>Full Name</label>
+                    <input type="text" name="fullName" value="" required>
+                </div>
+                <div class="input_container">
+                    <label>Password</label>
+                    <input type="password" name="password" required>
+                </div>
+                <div class="input_container">
+                    <label>City</label>
+                    <input type="text" name="city" value="" required>
+                </div>
+                <div class="input_container">
+                    <label>District</label>
+                    <input type="text" name="district" value="" required>
+                </div>
+                <button type="submit">Register</button>
+                <div class="input_container"><a href="index.html" id="back-btn">Back to login</a></div>
+        </form>
+    </div>
+  <script src="./demo.js"></script>
+</body>
+</html>

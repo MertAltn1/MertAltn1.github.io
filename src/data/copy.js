@@ -60,7 +60,9 @@ export const copy = {
     technology: 'Technology',
     source: 'View source',
     demo: 'Live demo',
-    demoNote: 'Runs entirely in your browser on sample data — no backend, no sign-up. The demo account is pre-filled; press LOGIN to go straight in. All people and messages are fictional.',
+    // Generic fallback; a project can override it with its own `demoNote`,
+    // since how you get into each demo differs.
+    demoNote: 'Runs entirely in your browser on sample data — no backend, no sign-up. All names and data are fictional.',
     screens: 'Screens',
     confidential: 'Company data, internal addresses, credentials, and implementation details are deliberately left out of this case study.',
   },

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile</title>
+  <link rel="stylesheet" href="./styles/profile.css">
+
+  <link rel="stylesheet" href="./mobile.css">
+</head>
+
+<body>
+
+<div class="container">
+  
+    <h2>My Profile</h2>
+  
+    
+  
+    
+  
+    <form action="/profile-update" onsubmit="return demoDisabled(event)" method="POST" id="update_form">
+        <div class="input_container">
+          <label>Email: </label>
+          <input type="email" name="email" value="market@demo.dev" required>
+        </div>
+  
+        <div class="input_container">
+          <label>Market Name: </label>
+          <input type="text" name="name"
+            value="GreenGrocer Market" required>
+        </div>
+  
+        <div class="input_container">
+          <label>City</label>
+          <input type="text" name="city" value="Ankara" required>
+        </div>
+  
+        <div class="input_container">
+          <label>District</label>
+          <input type="text" name="district" value="Cankaya" required>
+        </div>
+  
+        <hr>
+        <small>Leave password fields empty if you don't want to change it.</small>
+  
+        <div class="input_container">
+          <label>Current Password</label>
+          <input type="password" name="currentPassword">
+        </div>
+  
+        <div class="input_container">
+          <label>New Password</label>
+          <input type="password" name="newPassword">
+        </div>
+  
+      <button type="submit" class="purple-btn">Update Profile</button>
+    </form>
+  
+    <a href="dashboard-market.html" id="back-btn">Back to dashboard</a>
+</div>
+
+  <script src="./demo.js"></script>
+</body>
+
+</html>

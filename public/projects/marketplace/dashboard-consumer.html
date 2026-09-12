@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Consumer Dashboard</title>
+  <link rel="stylesheet" href="./styles/consumer/consumer-dashboard.css">
+  <link rel="stylesheet" href="./mobile.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="navbar">
+      <a href="index.html" class="link-btn">➜] Logout</a>
+      <div class="search-bar">
+        <form class="search-bar" action="/consumer/dashboard" method="GET">
+          <input type="text" name="search" value="" placeholder="Search product...">
+          <button type="submit" class="searchb">Search</button>
+        </form>
+      </div>
+      <div class="right-menu">
+        <a href="profile-consumer.html" class="link-btn">🌐 Demo Consumer</a>
+        <a href="cart.html" class="link-btn">🛒 My Cart</a>
+      </div>
+    </div>
+    <div class="content">
+      <div class="products">
+        
+            
+              <div class="product">
+               <div class="img">
+                   <img src="./uploads/product-1.jpg" style="height: 200px;">
+                </div>
+                <div class="product-info">
+                  <div><span>Name: </span>
+                    Sutas Suzme Peynir 250 G
+                  </div>
+                  <div><span>Stock: </span>
+                    12 Remaining
+                  </div>
+                  <div><span>Expiration Date: </span>
+                    30.09.2026
+                  </div>
+                  <div><span>Status: </span>Safe</div>
+                  <div class="price-cart">
+                    <div class="price-area">
+                      <div class="old-price">89.9 TL</div>
+                      <div class="new-price">59.9 TL</div>
+                    </div>
+                    <button class="add-to-cart" data-id="1">🛒</button>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="product">
+               <div class="img">
+                   <img src="./uploads/product-2.jpg" style="height: 200px;">
+                </div>
+                <div class="product-info">
+                  <div><span>Name: </span>
+                    Tahsildaroglu Dilimli Klasik Inek Beyaz Peynir 450 G
+                  </div>
+                  <div><span>Stock: </span>
+                    5 Remaining
+                  </div>
+                  <div><span>Expiration Date: </span>
+                    16.09.2026
+                  </div>
+                  <div><span>Status: </span>About to expire!</div>
+                  <div class="price-cart">
+                    <div class="price-area">
+                      <div class="old-price">129.9 TL</div>
+                      <div class="new-price">79.9 TL</div>
+                    </div>
+                    <button class="add-to-cart" data-id="2">🛒</button>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="product">
+               <div class="img">
+                   <img src="./uploads/product-3.jpg" style="height: 200px;">
+                </div>
+                <div class="product-info">
+                  <div><span>Name: </span>
+                    Migros Suzme Peynir 500 G
+                  </div>
+                  <div><span>Stock: </span>
+                    8 Remaining
+                  </div>
+                  <div><span>Expiration Date: </span>
+                    07.10.2026
+                  </div>
+                  <div><span>Status: </span>Safe</div>
+                  <div class="price-cart">
+                    <div class="price-area">
+                      <div class="old-price">149.9 TL</div>
+                      <div class="new-price">99.9 TL</div>
+                    </div>
+                    <button class="add-to-cart" data-id="3">🛒</button>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="product">
+               <div class="img">
+                   <img src="./uploads/product-4.jpg" style="height: 200px;">
+                </div>
+                <div class="product-info">
+                  <div><span>Name: </span>
+                    Tahsildaroglu Klasik Inek Beyaz Peyniri 500 G
+                  </div>
+                  <div><span>Stock: </span>
+                    3 Remaining
+                  </div>
+                  <div><span>Expiration Date: </span>
+                    10.09.2026
+                  </div>
+                  <div><span>Status: </span>Expired</div>
+                  <div class="price-cart">
+                    <div class="price-area">
+                      <div class="old-price">139.9 TL</div>
+                      <div class="new-price">89.9 TL</div>
+                    </div>
+                    <button class="add-to-cart" data-id="4">🛒</button>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="product">
+               <div class="img">
+                   <img src="./uploads/product-5.jpg" style="height: 200px;">
+                </div>
+                <div class="product-info">
+                  <div><span>Name: </span>
+                    Oznal Dilimli Klasik Beyaz Peynir 450 G
+                  </div>
+                  <div><span>Stock: </span>
+                    10 Remaining
+                  </div>
+                  <div><span>Expiration Date: </span>
+                    24.09.2026
+                  </div>
+                  <div><span>Status: </span>Safe</div>
+                  <div class="price-cart">
+                    <div class="price-area">
+                      <div class="old-price">119.9 TL</div>
+                      <div class="new-price">74.9 TL</div>
+                    </div>
+                    <button class="add-to-cart" data-id="5">🛒</button>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="product">
+               <div class="img">
+                   <img src="./uploads/product-6.jpg" style="height: 200px;">
+                </div>
+                <div class="product-info">
+                  <div><span>Name: </span>
+                    Ekici Beyaz Peynir Kg
+                  </div>
+                  <div><span>Stock: </span>
+                    6 Remaining
+                  </div>
+                  <div><span>Expiration Date: </span>
+                    13.09.2026
+                  </div>
+                  <div><span>Status: </span>About to expire!</div>
+                  <div class="price-cart">
+                    <div class="price-area">
+                      <div class="old-price">199.9 TL</div>
+                      <div class="new-price">149.9 TL</div>
+                    </div>
+                    <button class="add-to-cart" data-id="6">🛒</button>
+                  </div>
+                </div>
+              </div>
+              
+      </div>
+
+      <div class='pages'>
+        
+          <a class='pageNo active' href='/consumer/dashboard?pageNumber=1&search='>
+            1
+          </a>
+          
+      </div>
+
+      
+
+    </div>
+  </div>
+  <script src="./scripts/consumer/dashboard-consumer.js"></script>
+  <script src="./demo.js"></script>
+</body>
+
+</html>

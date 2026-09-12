@@ -1,0 +1,72 @@
+/* Orijinal CSS dosyalarina dokunmadan, sadece kucuk ekranlar icin
+   ust uste binen kucuk duzeltmeler. Bu sadece demo build icin eklendi. */
+
+@media (max-width: 768px) {
+    body {
+        padding: 12px;
+    }
+
+    /* login / register kutulari tam genislik alsin */
+    .container {
+        width: 100%;
+    }
+    #login_form,
+    .register,
+    input {
+        width: 92% !important;
+    }
+
+    /* market/consumer navbarlari tek satira sigmiyor, alt alta dizsin */
+    .navbar {
+        flex-direction: column;
+        gap: 10px;
+        padding: 14px 16px !important;
+        align-items: stretch;
+    }
+    .navbar .right-menu {
+        display: flex;
+        justify-content: space-between;
+    }
+    .navbar .search-bar {
+        width: 100%;
+    }
+    .navbar .search-bar form {
+        width: 100%;
+    }
+    .navbar .search-bar input {
+        width: 100% !important;
+        flex: 1;
+    }
+
+    /* urun kartlari zaten wrap yapiyor, sadece kapsayici dolgusunu daraltiyoruz */
+    .products {
+        width: 100%;
+        padding: 16px !important;
+        gap: 12px !important;
+    }
+    .product {
+        width: 100% !important;
+        max-width: 320px;
+    }
+
+    /* giris/kayit linkleri (View as Market/Consumer dahil) alt alta gelsin */
+    .links {
+        flex-direction: column;
+        align-items: center;
+    }
+    .link {
+        width: 90% !important;
+    }
+
+    /* sepet: liste ve toplam yan yana degil alt alta */
+    #items {
+        flex-direction: column !important;
+    }
+    #cart,
+    #total {
+        width: 100% !important;
+    }
+    .item {
+        flex-direction: column;
+    }
+}

@@ -8,6 +8,7 @@ export const projects = [
     // VITE_DEMO_MODE=true, so every request is answered by an in-browser mock
     // instead of the Django backend.
     demo: '/projects/artsconnect/',
+    demoNote: 'Runs entirely in your browser on sample data — no backend, no sign-up. The demo account is pre-filled; press LOGIN to go straight in. All people and messages are fictional.',
     repo: 'https://github.com/MertAltn1/artsconnect',
     summary: 'A real-time company messaging application built with Django REST Framework, React, and WebSockets.',
     challenge: 'Give a single conversation more than one thread without turning the sidebar into noise — and keep presence, unread counts, and message delivery live over one socket.',
@@ -26,6 +27,27 @@ export const projects = [
       { src: '/projects/artsconnect-shots/wallpaper.jpg', caption: 'Per-chat wallpaper picker' },
       { src: '/projects/artsconnect-shots/login.jpg', caption: 'Token-authenticated login' },
     ],
+  },
+  {
+    slug: 'discount-marketplace',
+    title: 'Discount Marketplace',
+    fullName: 'CTIS256 group project · 4-person team',
+    category: 'Full-stack',
+    featured: true,
+    // Static demo shell of the Express app: the pages are rendered out and the
+    // cart runs on fake data in the browser (demo.js). No server, no database.
+    demo: '/projects/marketplace/',
+    demoNote: 'A static shell of the real Express app — no login, no database. Use “View as Market” or “View as Consumer” to enter a dashboard; cart actions run on sample data in your browser.',
+    summary: 'A marketplace for discounted products with separate market and consumer roles, built with Node.js, Express, EJS, and MySQL.',
+    challenge: 'Serve two different audiences from one server-rendered app: markets listing surplus stock at a discount, and consumers browsing and buying it.',
+    highlights: [
+      'Separate market and consumer roles, each with their own dashboard and profile',
+      'Product listing, editing, and discount management on the market side',
+      'Browsing, cart, and checkout flow on the consumer side',
+      'Server-rendered EJS views backed by MySQL',
+      'Built as a 4-person team project for CTIS256',
+    ],
+    technologies: ['Node.js', 'Express', 'EJS', 'MySQL'],
   },
   {
     slug: 'playwright-automation',
