@@ -1,7 +1,8 @@
-import { ArrowUpRight } from 'lucide-react'
+import { ArrowUpRight, PlayCircle } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import CompanyLogo from '../components/common/CompanyLogo'
 import SectionHeading from '../components/common/SectionHeading'
+import { Github } from '../components/common/BrandIcons'
 import { projects } from '../data/projects'
 import { copy } from '../data/copy'
 
@@ -17,13 +18,24 @@ export default function ProjectsSection() {
 
         <div className="project-grid">
           {projects.map((project, index) => (
-            <Link className="card project-card" to={`/projects/${project.slug}`} key={project.slug}>
+            /*
+             * The card is an <article>, not an <a>: cards with a demo or repo
+             * carry their own links, and an anchor cannot be nested inside an
+             * anchor. The title link is "stretched" over the whole card in CSS
+             * instead, so the card still behaves as one big click target while
+             * the action links stay individually clickable.
+             */
+            <article className="card project-card" key={project.slug}>
               <div className="project-card__top mono">
                 <span>{project.category}</span>
                 <span>{String(index + 1).padStart(2, '0')}</span>
               </div>
 
-              <h3>{project.title}</h3>
+              <h3>
+                <Link className="project-card__link" to={`/projects/${project.slug}`}>
+                  {project.title}
+                </Link>
+              </h3>
               {project.fullName && <p className="project-card__alt">{project.fullName}</p>}
               <p className="project-card__summary">{project.summary}</p>
 
@@ -41,8 +53,23 @@ export default function ProjectsSection() {
                 ))}
               </div>
 
+              {(project.demo || project.repo) && (
+                <div className="project-card__actions">
+                  {project.demo && (
+                    <a className="text-link" href={project.demo} target="_blank" rel="noreferrer">
+                      <PlayCircle size={15} aria-hidden="true" />{copy.projects.demo}
+                    </a>
+                  )}
+                  {project.repo && (
+                    <a className="text-link" href={project.repo} target="_blank" rel="noreferrer">
+                      <Github size={14} aria-hidden="true" />GitHub
+                    </a>
+                  )}
+                </div>
+              )}
+
               <ArrowUpRight className="card-arrow" size={18} aria-hidden="true" />
-            </Link>
+            </article>
           ))}
         </div>
       </div>

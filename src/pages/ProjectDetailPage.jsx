@@ -1,5 +1,6 @@
-import { ArrowLeft } from 'lucide-react'
+import { ArrowLeft, PlayCircle } from 'lucide-react'
 import { useParams } from 'react-router-dom'
+import Button from '../components/common/Button'
 import { Github } from '../components/common/BrandIcons'
 import CompanyLogo from '../components/common/CompanyLogo'
 import { projects } from '../data/projects'
@@ -42,9 +43,32 @@ export default function ProjectDetailPage() {
               <li key={highlight}>{highlight}</li>
             ))}
           </ul>
+
+          {project.shots && (
+            <>
+              <h2 className="subheading">{copy.projects.screens}</h2>
+              <ul className="shot-list">
+                {project.shots.map((shot) => (
+                  <li key={shot.src}>
+                    <img src={shot.src} alt={shot.caption} loading="lazy" decoding="async" />
+                    <p>{shot.caption}</p>
+                  </li>
+                ))}
+              </ul>
+            </>
+          )}
         </section>
 
         <aside className="detail__aside">
+          {project.demo && (
+            <div className="detail__demo">
+              <Button href={project.demo} external icon={PlayCircle}>
+                {copy.projects.demo}
+              </Button>
+              <p className="detail__note">{copy.projects.demoNote}</p>
+            </div>
+          )}
+
           <h2 className="subheading">{copy.projects.technology}</h2>
           {project.platform && (
             <CompanyLogo

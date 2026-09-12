@@ -1,5 +1,32 @@
 export const projects = [
   {
+    slug: 'artsconnect',
+    title: 'ArtsConnect',
+    category: 'Full-stack',
+    featured: true,
+    // Static demo build of the real app, served from /public. It ships with
+    // VITE_DEMO_MODE=true, so every request is answered by an in-browser mock
+    // instead of the Django backend.
+    demo: '/projects/artsconnect/',
+    repo: 'https://github.com/MertAltn1/artsconnect',
+    summary: 'A real-time company messaging application built with Django REST Framework, React, and WebSockets.',
+    challenge: 'Give a single conversation more than one thread without turning the sidebar into noise — and keep presence, unread counts, and message delivery live over one socket.',
+    highlights: [
+      'Topics split one chat into separate threads, each with its own unread indicator',
+      'Real-time messaging and online/offline presence over a single Django Channels WebSocket',
+      'Token authentication, protected API access, and profile pages with per-user message counts',
+      'Sidebar ordered by activity, with last-message previews and in-chat search',
+    ],
+    technologies: ['React', 'Django', 'DRF', 'PostgreSQL', 'WebSocket', 'Django Channels'],
+    shots: [
+      { src: '/projects/artsconnect-shots/chat-topics.jpg', caption: 'A chat split into topics, each tracking its own unread state' },
+      { src: '/projects/artsconnect-shots/sidebar.jpg', caption: 'Sidebar ordered by activity, with presence and last-message previews' },
+      { src: '/projects/artsconnect-shots/profile.jpg', caption: 'Profile with department, role, team, and total message count' },
+      { src: '/projects/artsconnect-shots/wallpaper.jpg', caption: 'Per-chat wallpaper picker' },
+      { src: '/projects/artsconnect-shots/login.jpg', caption: 'Token-authenticated login' },
+    ],
+  },
+  {
     slug: 'playwright-automation',
     title: 'Playwright Test Automation',
     category: 'Quality engineering',

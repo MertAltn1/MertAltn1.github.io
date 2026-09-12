@@ -287,7 +287,8 @@
                 box-shadow var(--dur-base) var(--ease-out);
   }
 
-  a.card:hover {
+  a.card:hover,
+  .project-card:hover {
     border-color: var(--border-strong);
     transform: translateY(-3px);
     box-shadow: var(--shadow);

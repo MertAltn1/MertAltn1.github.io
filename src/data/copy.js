@@ -58,6 +58,9 @@ export const copy = {
     outcomes: 'Key outcomes',
     technology: 'Technology',
     source: 'View source',
+    demo: 'Live demo',
+    demoNote: 'Runs entirely in your browser on sample data — no backend, no sign-up. The demo account is pre-filled; press LOGIN to go straight in. All people and messages are fictional.',
+    screens: 'Screens',
     confidential: 'Company data, internal addresses, credentials, and implementation details are deliberately left out of this case study.',
   },
   skills: {
