@@ -7,6 +7,9 @@ export const projects = [
     // Static demo build of the real app, served from /public. It ships with
     // VITE_DEMO_MODE=true, so every request is answered by an in-browser mock
     // instead of the Django backend.
+    // The one project with a running demo, so it leads the grid as a wide
+    // card with a screenshot. Everything else stays text-only.
+    cover: '/projects/artsconnect-shots/chat-topics.jpg',
     demo: '/projects/artsconnect/',
     repo: 'https://github.com/MertAltn1/artsconnect',
     summary: 'A real-time company messaging application built with Django REST Framework, React, and WebSockets.',

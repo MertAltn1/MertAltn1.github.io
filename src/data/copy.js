@@ -46,6 +46,7 @@ export const copy = {
     continued: 'Still going — new experience will be added here.',
     all: 'All experience',
     contribution: 'What I did',
+    built: 'Built here',
     tools: 'Tools & scope',
     fallbackNote: 'Only the general shape of the work is described here; internal and confidential details are left out on purpose.',
   },

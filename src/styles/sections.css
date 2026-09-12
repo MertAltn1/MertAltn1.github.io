@@ -295,6 +295,28 @@
 
   .project-card { padding-right: var(--space-8); }
 
+  /*
+   * The project with a live demo leads the grid: two columns wide, with a
+   * screenshot. Only this one carries an image — the rest have no screenshots
+   * to show, and a half-filled image grid looks worse than none at all.
+   */
+  .project-card--featured { grid-column: span 2; }
+
+  .project-card__cover {
+    width: calc(100% + var(--space-5) + var(--space-8));
+    margin: calc(var(--space-5) * -1) calc(var(--space-8) * -1) var(--space-2) calc(var(--space-5) * -1);
+    aspect-ratio: 21 / 9;
+    object-fit: cover;
+    object-position: left top;
+    border-bottom: var(--hairline) solid var(--border);
+    border-radius: var(--radius) var(--radius) 0 0;
+  }
+
+  @media (max-width: 900px) {
+    .project-card--featured { grid-column: span 1; }
+    .project-card__cover { aspect-ratio: 16 / 9; }
+  }
+
   .project-card__top {
     display: flex;
     justify-content: space-between;
@@ -861,6 +883,29 @@
       margin-top: var(--space-6);
       gap: var(--space-7);
     }
+  }
+
+  /* --- Related projects on an experience page -------------------------------- */
+
+  .related-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+    gap: var(--space-4);
+    max-width: 60ch;
+  }
+
+  .related-card h3 { font-size: var(--text-md); }
+
+  .related-card p {
+    font-size: var(--text-sm);
+    color: var(--muted);
+  }
+
+  /* Above the stretched title link so it stays clickable */
+  .related-card__demo {
+    position: relative;
+    z-index: 1;
+    margin-top: var(--space-2);
   }
 
   /* --- Project screenshots -------------------------------------------------- */

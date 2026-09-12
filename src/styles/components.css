@@ -288,7 +288,8 @@
   }
 
   a.card:hover,
-  .project-card:hover {
+  .project-card:hover,
+  .related-card:hover {
     border-color: var(--border-strong);
     transform: translateY(-3px);
     box-shadow: var(--shadow);

@@ -35,6 +35,8 @@ export const experiences = [
       'Developed user search, profile photo upload, conversation management, and chat settings',
     ],
     technologies: ['React', 'Django', 'DRF', 'PostgreSQL', 'WebSocket', 'Django Channels'],
+    // Slugs from projects.js — the detail page links the work built here.
+    projects: ['artsconnect'],
   },
   {
     slug: 'baykar-software-engineering',

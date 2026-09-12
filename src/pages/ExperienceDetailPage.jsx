@@ -1,7 +1,8 @@
-import { ArrowLeft } from 'lucide-react'
-import { useParams } from 'react-router-dom'
+import { ArrowLeft, PlayCircle } from 'lucide-react'
+import { Link, useParams } from 'react-router-dom'
 import CompanyLogo from '../components/common/CompanyLogo'
 import { experiences } from '../data/experiences'
+import { projects } from '../data/projects'
 import { useSectionNav } from '../hooks/useSectionNav'
 import NotFoundPage from './NotFoundPage'
 import { copy } from '../data/copy'
@@ -10,6 +11,11 @@ export default function ExperienceDetailPage() {
   const { slug } = useParams()
   const goToSection = useSectionNav()
   const item = experiences.find((experience) => experience.slug === slug)
+
+  // Projects this placement produced, resolved from the slugs in experiences.js
+  const related = (item?.projects ?? [])
+    .map((projectSlug) => projects.find((project) => project.slug === projectSlug))
+    .filter(Boolean)
 
   if (!item) return <NotFoundPage />
 
@@ -41,6 +47,34 @@ export default function ExperienceDetailPage() {
               <li key={highlight}>{highlight}</li>
             ))}
           </ul>
+
+          {related.length > 0 && (
+            <>
+              <h2 className="subheading">{copy.experience.built}</h2>
+              <div className="related-grid">
+                {related.map((project) => (
+                  <article className="card related-card" key={project.slug}>
+                    <h3>
+                      <Link className="project-card__link" to={`/projects/${project.slug}`}>
+                        {project.title}
+                      </Link>
+                    </h3>
+                    <p>{project.summary}</p>
+                    {project.demo && (
+                      <a
+                        className="text-link related-card__demo"
+                        href={project.demo}
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        <PlayCircle size={15} aria-hidden="true" />{copy.projects.demo}
+                      </a>
+                    )}
+                  </article>
+                ))}
+              </div>
+            </>
+          )}
         </section>
 
         <aside className="detail__aside">
