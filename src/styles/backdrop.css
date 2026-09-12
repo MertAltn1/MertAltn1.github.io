@@ -14,6 +14,12 @@
     z-index: 0;
     overflow: hidden;
     pointer-events: none;
+    /*
+     * iOS Safari before 15.4 only understands the prefixed form. Without it the
+     * mask is ignored entirely and the aurora never fades out — it sits over the
+     * first screenful at full strength, which reads as a broken page on a phone.
+     */
+    -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 42%, transparent 100%);
     mask-image: linear-gradient(to bottom, #000 0%, #000 42%, transparent 100%);
   }
 
@@ -91,5 +97,17 @@
       animation: none !important;
       transform: none;
     }
+  }
+
+  /*
+   * Phones: a 90px blur across three large layers is the most expensive thing
+   * on the page and the cheapest to scale back. A smaller radius over a shorter
+   * backdrop looks near-identical at this size and stops the scroll from
+   * stuttering on mid-range devices.
+   */
+  @media (max-width: 700px) {
+    .backdrop { height: min(120vh, 900px); }
+    .backdrop__blob { filter: blur(60px); }
+    .backdrop__blob--3 { display: none; }
   }
 }

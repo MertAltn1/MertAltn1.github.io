@@ -238,7 +238,10 @@
   }
 
   @media (max-width: 600px) {
-    .site-header { backdrop-filter: blur(10px); }
+    .site-header {
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
 
     .nav-shell { gap: var(--space-2); }
 
