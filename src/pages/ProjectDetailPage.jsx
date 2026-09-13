@@ -7,6 +7,7 @@ import { projects } from '../data/projects'
 import { useSectionNav } from '../hooks/useSectionNav'
 import NotFoundPage from './NotFoundPage'
 import { copy } from '../data/copy'
+import { track } from '../lib/analytics'
 
 // Work carried out inside client or employer systems — these case studies stay
 // deliberately high level.
@@ -62,7 +63,12 @@ export default function ProjectDetailPage() {
         <aside className="detail__aside">
           {project.demo && (
             <div className="detail__demo">
-              <Button href={project.demo} external icon={PlayCircle}>
+              <Button
+                href={project.demo}
+                external
+                icon={PlayCircle}
+                onClick={() => track('demo_click', { project: project.slug })}
+              >
                 {copy.projects.demo}
               </Button>
               <p className="detail__note">{project.demoNote ?? copy.projects.demoNote}</p>
@@ -83,7 +89,13 @@ export default function ProjectDetailPage() {
             ))}
           </div>
           {project.repo && (
-            <a className="text-link detail__repo" href={project.repo} target="_blank" rel="noreferrer">
+            <a
+              className="text-link detail__repo"
+              href={project.repo}
+              target="_blank"
+              rel="noreferrer"
+              onClick={() => track('repo_click', { project: project.slug })}
+            >
               <Github size={15} aria-hidden="true" />{copy.projects.source}
             </a>
           )}

@@ -3,11 +3,15 @@ import { Outlet, useLocation } from 'react-router-dom'
 import Backdrop from '../components/layout/Backdrop'
 import Header from '../components/layout/Header'
 import Footer from '../components/layout/Footer'
+import { initAnalytics, trackPageview } from '../lib/analytics'
 import { site } from '../data/site'
 import { copy } from '../data/copy'
 
 export default function MainLayout() {
   const { pathname } = useLocation()
+
+  // Loads the provider once; a no-op while analytics is unconfigured.
+  useEffect(() => { initAnalytics() }, [])
 
   useEffect(() => {
     window.scrollTo(0, 0)
@@ -15,6 +19,9 @@ export default function MainLayout() {
     document.title = segment
       ? `${segment[0].toUpperCase()}${segment.slice(1)} — ${site.fullName}`
       : `${site.fullName} — ${copy.hero.role}`
+
+    // Reported after the title is set, so the pageview carries the right one.
+    trackPageview(pathname)
   }, [pathname])
 
   // A real `href="#main"` would overwrite HashRouter's hash and blow away the

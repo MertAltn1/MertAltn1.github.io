@@ -7,6 +7,7 @@ import { education } from '../data/education'
 import { quote } from '../data/quote'
 import { copy, fill } from '../data/copy'
 import { useSectionNav } from '../hooks/useSectionNav'
+import { track } from '../lib/analytics'
 
 export default function Hero() {
   const goToSection = useSectionNav()
@@ -26,7 +27,13 @@ export default function Hero() {
           <div className="hero__actions">
             <Button onClick={() => goToSection('projects')} icon={ArrowDown}>{copy.hero.work}</Button>
             {site.cv && (
-              <Button href={site.cv} variant="secondary" external icon={Download}>{copy.hero.cv}</Button>
+              <Button
+                href={site.cv}
+                variant="secondary"
+                external
+                icon={Download}
+                onClick={() => track('cv_click')}
+              >{copy.hero.cv}</Button>
             )}
             <Button href={`mailto:${site.email}`} variant="text" icon={ArrowUpRight}>{copy.hero.contact}</Button>
           </div>

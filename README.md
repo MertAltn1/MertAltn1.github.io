@@ -49,7 +49,7 @@ refreshing a detail page remains reliable on GitHub Pages without custom server
 rewrites. Because the router owns the hash, in-page navigation cannot use
 `href="#section"` anchors — `src/hooks/useSectionNav.js` scrolls imperatively instead.
 
-Vite uses `/` as its base because this is intended for the `mertaltin1.github.io`
+Vite uses `/` as its base because this is intended for the `mertaltn1.github.io`
 user site. Pushing to `main` triggers `.github/workflows/deploy.yml`.
 
 ## Content

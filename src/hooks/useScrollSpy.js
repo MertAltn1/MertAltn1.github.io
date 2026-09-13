@@ -1,4 +1,5 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
+import { track } from '../lib/analytics'
 
 /**
  * Reports which of the given section ids is currently in the reading band.
@@ -9,6 +10,9 @@ import { useEffect, useState } from 'react'
  */
 export function useScrollSpy(ids, enabled = true) {
   const [activeId, setActiveId] = useState(null)
+  // Sections already reported this page load — each one counts once, otherwise
+  // scrolling up and down would fire the same event over and over.
+  const reported = useRef(new Set())
 
   useEffect(() => {
     if (!enabled) {
@@ -24,7 +28,14 @@ export function useScrollSpy(ids, enabled = true) {
       (entries) => {
         for (const entry of entries) visibility.set(entry.target.id, entry.isIntersecting)
         // Document order wins when two sections straddle the band.
-        setActiveId(ids.find((id) => visibility.get(id)) ?? null)
+        const next = ids.find((id) => visibility.get(id)) ?? null
+        setActiveId(next)
+
+        // Doubles as reading-depth tracking: which sections a visitor got to.
+        if (next && !reported.current.has(next)) {
+          reported.current.add(next)
+          track('section_view', { section: next })
+        }
       },
       { rootMargin: '-45% 0px -50% 0px' },
     )

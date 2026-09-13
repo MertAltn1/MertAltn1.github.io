@@ -5,6 +5,7 @@ import SectionHeading from '../components/common/SectionHeading'
 import { Github } from '../components/common/BrandIcons'
 import { projects } from '../data/projects'
 import { copy } from '../data/copy'
+import { track } from '../lib/analytics'
 
 export default function ProjectsSection() {
   return (
@@ -32,7 +33,11 @@ export default function ProjectsSection() {
               </div>
 
               <h3>
-                <Link className="project-card__link" to={`/projects/${project.slug}`}>
+                <Link
+                  className="project-card__link"
+                  to={`/projects/${project.slug}`}
+                  onClick={() => track('project_open', { project: project.slug })}
+                >
                   {project.title}
                 </Link>
               </h3>
@@ -56,12 +61,24 @@ export default function ProjectsSection() {
               {(project.demo || project.repo) && (
                 <div className="project-card__actions">
                   {project.demo && (
-                    <a className="text-link" href={project.demo} target="_blank" rel="noreferrer">
+                    <a
+                      className="text-link"
+                      href={project.demo}
+                      target="_blank"
+                      rel="noreferrer"
+                      onClick={() => track('demo_click', { project: project.slug })}
+                    >
                       <PlayCircle size={15} aria-hidden="true" />{copy.projects.demo}
                     </a>
                   )}
                   {project.repo && (
-                    <a className="text-link" href={project.repo} target="_blank" rel="noreferrer">
+                    <a
+                      className="text-link"
+                      href={project.repo}
+                      target="_blank"
+                      rel="noreferrer"
+                      onClick={() => track('repo_click', { project: project.slug })}
+                    >
                       <Github size={14} aria-hidden="true" />GitHub
                     </a>
                   )}
