@@ -28,6 +28,7 @@ export const copy = {
     portraitAlt: 'Portrait of {name}',
     gpa: 'GPA',
     scholarship: 'Merit Scholarship · Top 2%',
+    scroll: 'Scroll to explore',
   },
   about: {
     eyebrow: 'About',

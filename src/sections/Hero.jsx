@@ -2,6 +2,7 @@ import { ArrowDown, ArrowUpRight, Award, Download, GraduationCap, MapPin } from 
 import Avatar from '../components/common/Avatar'
 import { Github, Linkedin } from '../components/common/BrandIcons'
 import Button from '../components/common/Button'
+import ScrollCue from '../components/common/ScrollCue'
 import { site } from '../data/site'
 import { education } from '../data/education'
 import { quote } from '../data/quote'
@@ -15,7 +16,7 @@ export default function Hero() {
   return (
     <section className="hero">
       <div className="container hero__grid">
-        <div className="hero__copy">
+        <div className="hero__copy" data-animate>
           <h1 className="hero__name">{site.fullName}</h1>
 
           <p className="hero__role">{copy.hero.role} · {copy.hero.subtitle}</p>
@@ -72,7 +73,7 @@ export default function Hero() {
           </div>
         </div>
 
-        <div className="hero__portrait">
+        <div className="hero__portrait" data-animate>
           <Avatar
             src={site.photo}
             alt={fill(copy.hero.portraitAlt, { name: site.fullName })}
@@ -81,6 +82,8 @@ export default function Hero() {
           <blockquote className="hero__quote">{quote}</blockquote>
         </div>
       </div>
+
+      <ScrollCue label={copy.hero.scroll} onActivate={() => goToSection('about')} />
     </section>
   )
 }

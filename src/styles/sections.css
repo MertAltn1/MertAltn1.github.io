@@ -113,6 +113,106 @@
   .hero__quote::before { content: open-quote; }
   .hero__quote::after { content: close-quote; }
 
+  /* --- Hero entrance --------------------------------------------------------
+   * Children fade up in sequence. The delay is driven by nth-child rather than
+   * JS so nothing has to mount before it can animate, and the final state is
+   * the normal layout — if the animation never runs, the hero still looks
+   * exactly right.
+   */
+  [data-animate] > * {
+    opacity: 0;
+    transform: translateY(14px);
+    animation: hero-rise 0.8s var(--ease-out) forwards;
+  }
+
+  .hero__copy > *:nth-child(1) { animation-delay: 0.05s; }
+  .hero__copy > *:nth-child(2) { animation-delay: 0.12s; }
+  .hero__copy > *:nth-child(3) { animation-delay: 0.19s; }
+  .hero__copy > *:nth-child(4) { animation-delay: 0.26s; }
+  .hero__copy > *:nth-child(5) { animation-delay: 0.33s; }
+
+  .hero__portrait > *:nth-child(1) { animation-delay: 0.16s; }
+  .hero__portrait > *:nth-child(2) { animation-delay: 0.32s; }
+
+  @keyframes hero-rise {
+    to { opacity: 1; transform: none; }
+  }
+
+  /* --- Scroll cue ----------------------------------------------------------- */
+
+  .scroll-cue {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-2);
+    margin: var(--space-8) auto 0;
+    padding: var(--space-2);
+    color: var(--muted);
+    /* Hidden is the resting state: it shows once mounted, hides again on scroll */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(8px);
+    transition: opacity var(--dur-slow) var(--ease-out),
+                transform var(--dur-slow) var(--ease-out),
+                visibility var(--dur-slow) var(--ease-out),
+                color var(--dur-fast) var(--ease-out);
+  }
+
+  .scroll-cue[data-visible='true'] {
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+  }
+
+  .scroll-cue:hover { color: var(--heading); }
+
+  .scroll-cue__mouse { width: 20px; height: 32px; }
+
+  .scroll-cue__wheel { animation: cue-wheel 2s var(--ease-in-out) infinite; }
+
+  /* The dot falls and fades, then reappears at the top for the next pass. */
+  @keyframes cue-wheel {
+    0%, 10% { transform: translateY(0); opacity: 1; }
+    45% { transform: translateY(9px); opacity: 0; }
+    46%, 70% { transform: translateY(0); opacity: 0; }
+    85%, 100% { transform: translateY(0); opacity: 1; }
+  }
+
+  .scroll-cue__label {
+    font-family: var(--font-mono);
+    font-size: var(--text-2xs);
+    letter-spacing: var(--tracking-label);
+    text-transform: uppercase;
+  }
+
+  .scroll-cue__chevron {
+    width: 16px;
+    height: 16px;
+    animation: cue-chevron 2s var(--ease-in-out) infinite;
+  }
+
+  @keyframes cue-chevron {
+    0%, 100% { transform: translateY(0); opacity: 0.55; }
+    50% { transform: translateY(4px); opacity: 1; }
+  }
+
+  /*
+   * Reduced motion: no drift, no bounce — but the hero must still be visible,
+   * so the entrance resolves to its end state instead of being skipped.
+   */
+  @media (prefers-reduced-motion: reduce) {
+    [data-animate] > * {
+      opacity: 1;
+      transform: none;
+      animation: none;
+    }
+
+    .scroll-cue { transition: none; }
+
+    .scroll-cue__wheel,
+    .scroll-cue__chevron { animation: none; }
+  }
+
   @media (max-width: 880px) {
     .hero__grid {
       grid-template-columns: 1fr;
