@@ -574,10 +574,46 @@
 
   /* --- Certificates --------------------------------------------------------- */
 
-  .certificate-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(min(100%, 19rem), 1fr));
+  /*
+   * Horizontal rail. The page gutter is used as the track's padding so the
+   * first card lines up with the heading above it, while the last card can
+   * still scroll clear of the right edge.
+   */
+  .certificate-rail {
+    display: flex;
     gap: var(--space-5);
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x proximity;
+    padding-block: var(--space-1) var(--space-4);
+    /* pull out to the page edge, then pad back in — cards bleed off-screen */
+    margin-inline: calc(var(--gutter) * -1);
+    padding-inline: var(--gutter);
+    cursor: grab;
+    scrollbar-width: none;
+  }
+
+  .certificate-rail::-webkit-scrollbar { display: none; }
+  .certificate-rail.is-dragging { cursor: grabbing; scroll-snap-type: none; }
+
+  .certificate-rail > li {
+    flex: 0 0 19rem;
+    scroll-snap-align: start;
+    display: flex;
+  }
+
+  .certificate-rail .certificate-card { width: 100%; }
+
+  .rail-hint {
+    margin-top: var(--space-4);
+    color: var(--muted);
+    font-size: var(--text-2xs);
+    letter-spacing: var(--tracking-label);
+    text-transform: uppercase;
+  }
+
+  @media (max-width: 560px) {
+    .certificate-rail > li { flex-basis: 78vw; }
   }
 
   .certificate-card {
@@ -653,6 +689,15 @@
     padding: var(--space-5);
     flex: 1;
   }
+
+  /*
+   * One entry has no scan to show (the camp issued none). Without the image
+   * above it the card still stretches to its neighbours' height, so the body
+   * is centred — that spreads the leftover space instead of leaving a hole
+   * between the description and the link.
+   */
+  .certificate-card--plain .certificate-card__body { justify-content: center; }
+  .certificate-card--plain .certificate-card__foot { margin-top: var(--space-5); }
 
   .certificate-card__issuer {
     color: var(--accent);

@@ -3,8 +3,11 @@ import { Github } from '../components/common/BrandIcons'
 import SectionHeading from '../components/common/SectionHeading'
 import { certificates } from '../data/certificates'
 import { copy } from '../data/copy'
+import { useDragScroll } from '../hooks/useDragScroll'
 
 export default function CertificatesSection() {
+  const rail = useDragScroll()
+
   return (
     <section className="section section--tint" id="certificates">
       <div className="container">
@@ -14,9 +17,17 @@ export default function CertificatesSection() {
           text={copy.certificates.text}
         />
 
-        <ul className="certificate-grid">
+        {/*
+          A rail rather than a grid: the documents all look alike, so reading
+          them left to right suits them, and eight cards no longer take over
+          the page. tabIndex makes the arrow keys reachable without a mouse.
+        */}
+        <ul className="certificate-rail" ref={rail} tabIndex={0} aria-label={copy.certificates.title}>
           {certificates.map((certificate) => (
-            <li className="certificate-card" key={certificate.title}>
+            <li
+              className={`certificate-card${certificate.preview ? '' : ' certificate-card--plain'}`}
+              key={certificate.title}
+            >
               {certificate.preview && (
                 <a
                   className="certificate-card__scan"
@@ -49,6 +60,8 @@ export default function CertificatesSection() {
             </li>
           ))}
         </ul>
+
+        <p className="rail-hint mono">{copy.certificates.hint}</p>
       </div>
     </section>
   )

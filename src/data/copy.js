@@ -97,6 +97,7 @@ export const copy = {
     pdf: 'View PDF',
     open: 'Open the certificate as a PDF:',
     repo: 'Project repository',
+    hint: 'Drag or scroll to see all eight',
   },
   contact: {
     eyebrow: 'Contact',
