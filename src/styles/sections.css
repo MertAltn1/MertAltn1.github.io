@@ -600,14 +600,6 @@
     flex: 0 0 27rem;
   }
 
-  .rail-hint {
-    margin-top: var(--space-4);
-    color: var(--muted);
-    font-size: var(--text-2xs);
-    letter-spacing: var(--tracking-label);
-    text-transform: uppercase;
-  }
-
   @media (max-width: 560px) {
     .certificate-rail > .certificate-card { flex: 0 0 82vw; }
   }

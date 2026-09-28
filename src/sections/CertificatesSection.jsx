@@ -94,10 +94,6 @@ export default function CertificatesSection() {
           />
         ))}
       </ul>
-
-      <div className="container">
-        <p className="rail-hint mono">{copy.certificates.hint}</p>
-      </div>
     </section>
   )
 }
