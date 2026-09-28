@@ -7,6 +7,9 @@ export const projects = [
     // Static demo build of the real app, served from /public. It ships with
     // VITE_DEMO_MODE=true, so every request is answered by an in-browser mock
     // instead of the Django backend.
+    // Card preview, mirroring the certificate cards. Projects without one
+    // simply render a shorter text card — nothing is stretched to fill.
+    shot: '/projects/artsconnect-shots/chat-topics.jpg',
     demo: '/projects/artsconnect/',
     demoNote: 'Runs entirely in your browser on sample data — no backend, no sign-up. The demo account is pre-filled; press LOGIN to go straight in. All people and messages are fictional.',
     repo: 'https://github.com/MertAltn1/artsconnect',
@@ -36,6 +39,7 @@ export const projects = [
     featured: true,
     // Static demo shell of the Express app: the pages are rendered out and the
     // cart runs on fake data in the browser (demo.js). No server, no database.
+    shot: '/projects/marketplace-shots/dashboard-consumer.jpg',
     demo: '/projects/marketplace/',
     demoNote: 'A static shell of the real Express app — no login, no database. Use “View as Market” or “View as Consumer” to enter a dashboard; cart actions run on sample data in your browser.',
     summary: 'A marketplace for discounted products with separate market and consumer roles, built with Node.js, Express, EJS, and MySQL.',

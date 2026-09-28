@@ -53,6 +53,13 @@
     border-block: var(--hairline) solid var(--border);
   }
 
+  /*
+   * The first section after the hero starts closer. With the hero's own bottom
+   * padding, the scroll cue and a full --section-y on top, there was a ~235px
+   * stretch of nothing between the hero and the first heading.
+   */
+  .hero + .section { padding-top: var(--space-7); }
+
   /* --- Recurring text treatments ------------------------------------------ */
 
   .eyebrow {

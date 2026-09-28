@@ -145,7 +145,7 @@
     flex-direction: column;
     align-items: center;
     gap: var(--space-2);
-    margin: var(--space-8) auto 0;
+    margin: var(--space-5) auto 0;
     padding: var(--space-2);
     color: var(--muted);
     /* Hidden is the resting state: it shows once mounted, hides again on scroll */
@@ -391,9 +391,50 @@
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(min(100%, 20rem), 1fr));
     gap: var(--space-4);
+    /*
+     * Cards size to their own content instead of stretching to the tallest in
+     * the row. Stretching left a card with no preview image looking like an
+     * empty box with its footer marooned at the bottom.
+     */
+    align-items: start;
   }
 
-  .project-card { padding-right: var(--space-8); }
+  /*
+   * Shaped like a certificate card: optional preview on top, body below.
+   * Padding lives on the body so the preview can bleed to the card's edges.
+   */
+  .project-card { padding: 0; overflow: hidden; }
+
+  .project-card__shot {
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    background: var(--surface-2);
+    border-bottom: var(--hairline) solid var(--border);
+  }
+
+  .project-card__shot img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: left top;
+    transition: transform var(--dur-slow) var(--ease-out);
+  }
+
+  .project-card:hover .project-card__shot img { transform: scale(1.03); }
+
+  /* Screenshots are bright; a dark page needs them settled down */
+  :root[data-theme='dark'] .project-card__shot img {
+    filter: brightness(0.88) contrast(1.02);
+  }
+
+  .project-card__body {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    padding: var(--space-5);
+    padding-right: var(--space-8);
+    flex: 1;
+  }
 
   .project-card__top {
     display: flex;
@@ -418,18 +459,6 @@
     z-index: 0;
   }
 
-  /* Action links must sit above the stretched overlay to stay clickable */
-  .project-card__actions {
-    position: relative;
-    z-index: 1;
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-2) var(--space-5);
-    margin-top: var(--space-4);
-    padding-top: var(--space-4);
-    border-top: var(--hairline) solid var(--border);
-  }
-
   .project-card__alt {
     margin-top: calc(var(--space-3) * -1);
     font-size: var(--text-sm);
@@ -442,31 +471,29 @@
     color: var(--muted);
   }
 
-  .project-card__tags { margin-top: auto; padding-top: var(--space-2); }
+  /*
+   * Only the footer absorbs the leftover height. Pinning the tag row here too
+   * left a visible hole in the middle of every card that was shorter than its
+   * tallest neighbour in the row.
+   */
+  .project-card__tags { padding-top: var(--space-1); }
+
+  .project-card__foot {
+    position: relative;
+    z-index: 1;                       /* above the stretched link */
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-2) var(--space-5);
+    margin-top: auto;
+    padding-top: var(--space-4);
+    border-top: var(--hairline) solid var(--border);
+  }
 
   .project-card__platform {
     --logo-w: 62px;
     --logo-h: 22px;
     margin-top: var(--space-1);
-  }
-
-  .card-arrow {
-    position: absolute;
-    top: var(--space-5);
-    right: var(--space-5);
-    color: var(--border-strong);
-    opacity: 0;
-    transform: translate(-4px, 4px);
-    transition: opacity var(--dur-base) var(--ease-out),
-                transform var(--dur-base) var(--ease-out),
-                color var(--dur-base) var(--ease-out);
-  }
-
-  a.card:hover .card-arrow,
-  .project-card:hover .card-arrow {
-    opacity: 1;
-    transform: none;
-    color: var(--accent);
   }
 
   /* --- Skills --------------------------------------------------------------- */
@@ -913,17 +940,10 @@
 
     .project-grid { gap: var(--space-3); }
 
-    .project-card {
-      min-height: auto;
+    /* Padding lives on the body now — leaving it here inset the preview image */
+    .project-card__body {
       padding: var(--space-5);
-      padding-right: var(--space-7);
-    }
-
-    .project-card .card-arrow {
-      top: var(--space-5);
-      right: var(--space-4);
-      opacity: 1;
-      transform: none;
+      padding-right: var(--space-5);
     }
 
     .project-card__tags .tag:nth-child(n+3) { display: none; }
