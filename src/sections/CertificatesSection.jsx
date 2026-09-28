@@ -54,7 +54,7 @@ function CertificateCard({ certificate, cloned, loopStart }) {
 
 export default function CertificatesSection() {
   // 0.35px per frame — about 20px a second, slow enough to read past.
-  const rail = useDragScroll({ drift: 0.35 })
+  const rail = useDragScroll({ drift: 0.35, loop: true })
 
   return (
     <section className="section section--tint" id="certificates">

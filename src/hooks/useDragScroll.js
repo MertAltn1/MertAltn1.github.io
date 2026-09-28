@@ -1,22 +1,23 @@
 import { useEffect, useRef } from 'react'
 
 /**
- * Horizontal rail behaviour: grab-and-pan, arrow keys, and an optional
- * continuous drift.
+ * Horizontal rail behaviour: grab-and-pan, arrow keys, and an optional endless
+ * loop that also drifts on its own.
  *
- * The drift moves `scrollLeft` rather than animating a transform, so native
- * scrolling, dragging and the scrollbar all keep working while it runs. The
- * caller renders its items twice and marks the first copy of the second set
- * with `data-loop-start`; the distance between that element and the first one
- * is the exact amount to wrap by, which `scrollWidth / 2` is not once gaps and
- * padding are involved.
+ * The caller renders its items twice and marks the first copy of the second
+ * set with `data-loop-start`. The distance between that element and the first
+ * one is how far the rail travels before it can jump back — measured as the
+ * gap between the two, since `offsetLeft` alone includes the rail's padding
+ * and `scrollWidth / 2` ignores the gaps.
  *
- * Motion stops whenever the visitor is likely to be reading: pointer over the
+ * Wrapping happens on every scroll, not just while drifting: dragging past the
+ * end would otherwise run into the duplicate copies and show every card twice.
+ *
+ * Motion stops whenever someone is likely to be reading — pointer over the
  * rail, keyboard focus inside it, an active drag, a hidden tab, or
- * prefers-reduced-motion. WCAG 2.2.2 requires moving content to be pausable,
- * and a strip nobody can stop reading is just noise.
+ * prefers-reduced-motion. WCAG 2.2.2 asks that moving content be pausable.
  */
-export function useDragScroll({ drift = 0 } = {}) {
+export function useDragScroll({ drift = 0, loop = false } = {}) {
   const ref = useRef(null)
 
   useEffect(() => {
@@ -24,32 +25,63 @@ export function useDragScroll({ drift = 0 } = {}) {
     if (!el) return
 
     let dragging = false
-    let startX = 0
-    let startLeft = 0
+    let lastX = 0
     let moved = 0
     let paused = false
     let frame = 0
+    let lastLeft = 0
+    let wrapping = false
 
     const reduced = window.matchMedia('(prefers-reduced-motion: reduce)')
+
+    const wrapDistance = () => {
+      const clone = el.querySelector('[data-loop-start]')
+      const first = el.firstElementChild
+      return clone && first ? clone.offsetLeft - first.offsetLeft : 0
+    }
+
+    /** Keeps the rail inside the first copy of the list, in both directions. */
+    const normalize = () => {
+      if (!loop || wrapping) return
+      const wrapAt = wrapDistance()
+      if (wrapAt <= 0) return
+
+      if (el.scrollLeft >= wrapAt) {
+        wrapping = true
+        el.scrollLeft -= wrapAt
+        wrapping = false
+      } else if (el.scrollLeft <= 0 && lastLeft > 1) {
+        // Scrolling back past the start continues into the copy behind it.
+        wrapping = true
+        el.scrollLeft += wrapAt
+        wrapping = false
+      }
+      lastLeft = el.scrollLeft
+    }
+
+    // Also on scroll, so the loop still closes when there is no drift running.
+    el.addEventListener('scroll', normalize, { passive: true })
 
     /* ---------- drag ---------- */
     const onPointerDown = (event) => {
       if (event.button !== 0) return
       dragging = true
       moved = 0
-      startX = event.clientX
-      startLeft = el.scrollLeft
+      lastX = event.clientX
       el.classList.add('is-dragging')
     }
 
     const onPointerMove = (event) => {
       if (!dragging) return
-      const dx = event.clientX - startX
-      moved = Math.max(moved, Math.abs(dx))
+      // Incremental, not anchored to a start position: a wrap mid-drag would
+      // otherwise make the rail jump away from the pointer.
+      const dx = event.clientX - lastX
+      lastX = event.clientX
+      moved += Math.abs(dx)
       if (moved > 4 && !el.hasPointerCapture(event.pointerId)) {
         el.setPointerCapture(event.pointerId)
       }
-      el.scrollLeft = startLeft - dx
+      el.scrollLeft -= dx
     }
 
     const endDrag = () => {
@@ -71,11 +103,11 @@ export function useDragScroll({ drift = 0 } = {}) {
       if (!card) return
       const step = card.getBoundingClientRect().width + 24
       if (event.key === 'ArrowRight') {
-        el.scrollBy({ left: step, behavior: 'smooth' })
+        el.scrollBy({ left: step })
         event.preventDefault()
       }
       if (event.key === 'ArrowLeft') {
-        el.scrollBy({ left: -step, behavior: 'smooth' })
+        el.scrollBy({ left: -step })
         event.preventDefault()
       }
     }
@@ -91,7 +123,7 @@ export function useDragScroll({ drift = 0 } = {}) {
     const pause = () => { paused = true }
     const resume = () => { paused = false }
 
-    if (drift > 0) {
+    if (drift > 0 || loop) {
       el.addEventListener('pointerenter', pause)
       el.addEventListener('pointerleave', resume)
       el.addEventListener('focusin', pause)
@@ -99,24 +131,22 @@ export function useDragScroll({ drift = 0 } = {}) {
 
       const step = () => {
         frame = requestAnimationFrame(step)
+
+        // Wrap every frame, whatever moved the rail — drift, drag, wheel or
+        // keyboard. Leaving this to the scroll event alone meant a fast drag
+        // could travel into the duplicate copies before it fired.
+        normalize()
+
+        if (drift <= 0) return
         if (paused || dragging || document.hidden || reduced.matches) return
-
-        // Distance between the first card and its clone. Measured as the gap
-        // between the two, not the clone's raw offsetLeft: that includes the
-        // rail's left padding, and subtracting it left a visible jump of
-        // exactly one padding's width on every loop.
-        const loop = el.querySelector('[data-loop-start]')
-        const first = el.firstElementChild
-        const wrapAt = loop && first ? loop.offsetLeft - first.offsetLeft : 0
-
         el.scrollLeft += drift
-        if (wrapAt > 0 && el.scrollLeft >= wrapAt) el.scrollLeft -= wrapAt
       }
 
       frame = requestAnimationFrame(step)
     }
 
     return () => {
+      el.removeEventListener('scroll', normalize)
       el.removeEventListener('pointerdown', onPointerDown)
       el.removeEventListener('pointermove', onPointerMove)
       el.removeEventListener('pointerup', endDrag)
@@ -129,7 +159,7 @@ export function useDragScroll({ drift = 0 } = {}) {
       el.removeEventListener('focusout', resume)
       cancelAnimationFrame(frame)
     }
-  }, [drift])
+  }, [drift, loop])
 
   return ref
 }
