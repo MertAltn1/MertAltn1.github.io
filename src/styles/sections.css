@@ -575,34 +575,30 @@
   /* --- Certificates --------------------------------------------------------- */
 
   /*
-   * Horizontal rail. The page gutter is used as the track's padding so the
-   * first card lines up with the heading above it, while the last card can
-   * still scroll clear of the right edge.
+   * Horizontal rail, running the full width of the page. Its inline padding
+   * matches the container's own gutter maths, so the first card starts on the
+   * same line as the heading above instead of hugging the window edge.
    */
   .certificate-rail {
     display: flex;
     gap: var(--space-5);
     overflow-x: auto;
     overscroll-behavior-x: contain;
-    scroll-snap-type: x proximity;
     padding-block: var(--space-1) var(--space-4);
-    /* pull out to the page edge, then pad back in — cards bleed off-screen */
-    margin-inline: calc(var(--gutter) * -1);
-    padding-inline: var(--gutter);
+    /* container left edge + its own gutter, so card 1 lines up with the h2 */
+    padding-inline: calc(max(0px, (100vw - var(--container)) / 2) + var(--gutter));
     cursor: grab;
     scrollbar-width: none;
   }
 
   .certificate-rail::-webkit-scrollbar { display: none; }
-  .certificate-rail.is-dragging { cursor: grabbing; scroll-snap-type: none; }
+  .certificate-rail.is-dragging { cursor: grabbing; }
 
-  .certificate-rail > li {
-    flex: 0 0 19rem;
-    scroll-snap-align: start;
-    display: flex;
+  /* Landscape cards: these are landscape documents, and a narrow portrait
+     card shrank the certificate to the point of being unreadable. */
+  .certificate-rail > .certificate-card {
+    flex: 0 0 27rem;
   }
-
-  .certificate-rail .certificate-card { width: 100%; }
 
   .rail-hint {
     margin-top: var(--space-4);
@@ -613,7 +609,7 @@
   }
 
   @media (max-width: 560px) {
-    .certificate-rail > li { flex-basis: 78vw; }
+    .certificate-rail > .certificate-card { flex: 0 0 82vw; }
   }
 
   .certificate-card {
@@ -632,11 +628,11 @@
     box-shadow: var(--shadow);
   }
 
-  /* Fixed ratio so a landscape certificate and a portrait one still line up */
+  /* Close to a landscape page, so a certificate fills the box almost exactly */
   .certificate-card__scan {
     position: relative;
     display: block;
-    aspect-ratio: 4 / 3;
+    aspect-ratio: 3 / 2;
     overflow: hidden;
     background: var(--surface-2);
     border-bottom: var(--hairline) solid var(--border);

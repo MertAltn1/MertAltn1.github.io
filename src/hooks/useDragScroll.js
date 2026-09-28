@@ -1,14 +1,22 @@
 import { useEffect, useRef } from 'react'
 
 /**
- * Makes a horizontally scrollable element draggable with a pointer, and
- * navigable with the arrow keys.
+ * Horizontal rail behaviour: grab-and-pan, arrow keys, and an optional
+ * continuous drift.
  *
- * Native scrolling still does the work — this only adds grab-and-pan on top of
- * it, so touch, trackpad, scrollbar and keyboard all keep behaving normally.
- * Vertical page scrolling is never hijacked.
+ * The drift moves `scrollLeft` rather than animating a transform, so native
+ * scrolling, dragging and the scrollbar all keep working while it runs. The
+ * caller renders its items twice and marks the first copy of the second set
+ * with `data-loop-start`; the distance between that element and the first one
+ * is the exact amount to wrap by, which `scrollWidth / 2` is not once gaps and
+ * padding are involved.
+ *
+ * Motion stops whenever the visitor is likely to be reading: pointer over the
+ * rail, keyboard focus inside it, an active drag, a hidden tab, or
+ * prefers-reduced-motion. WCAG 2.2.2 requires moving content to be pausable,
+ * and a strip nobody can stop reading is just noise.
  */
-export function useDragScroll() {
+export function useDragScroll({ drift = 0 } = {}) {
   const ref = useRef(null)
 
   useEffect(() => {
@@ -19,9 +27,13 @@ export function useDragScroll() {
     let startX = 0
     let startLeft = 0
     let moved = 0
+    let paused = false
+    let frame = 0
 
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)')
+
+    /* ---------- drag ---------- */
     const onPointerDown = (event) => {
-      // Let the browser handle text selection and real interactive children.
       if (event.button !== 0) return
       dragging = true
       moved = 0
@@ -34,20 +46,19 @@ export function useDragScroll() {
       if (!dragging) return
       const dx = event.clientX - startX
       moved = Math.max(moved, Math.abs(dx))
-      // Only capture once it is clearly a drag, so a plain click still works.
-      if (moved > 4 && el.hasPointerCapture?.(event.pointerId) === false) {
+      if (moved > 4 && !el.hasPointerCapture(event.pointerId)) {
         el.setPointerCapture(event.pointerId)
       }
       el.scrollLeft = startLeft - dx
     }
 
-    const onPointerUp = () => {
+    const endDrag = () => {
       if (!dragging) return
       dragging = false
       el.classList.remove('is-dragging')
     }
 
-    // A drag that ends on a link should not also open it.
+    // A drag that finishes on a link must not also open it.
     const onClickCapture = (event) => {
       if (moved > 6) {
         event.preventDefault()
@@ -71,20 +82,54 @@ export function useDragScroll() {
 
     el.addEventListener('pointerdown', onPointerDown)
     el.addEventListener('pointermove', onPointerMove)
-    el.addEventListener('pointerup', onPointerUp)
-    el.addEventListener('pointercancel', onPointerUp)
+    el.addEventListener('pointerup', endDrag)
+    el.addEventListener('pointercancel', endDrag)
     el.addEventListener('click', onClickCapture, true)
     el.addEventListener('keydown', onKeyDown)
+
+    /* ---------- drift ---------- */
+    const pause = () => { paused = true }
+    const resume = () => { paused = false }
+
+    if (drift > 0) {
+      el.addEventListener('pointerenter', pause)
+      el.addEventListener('pointerleave', resume)
+      el.addEventListener('focusin', pause)
+      el.addEventListener('focusout', resume)
+
+      const step = () => {
+        frame = requestAnimationFrame(step)
+        if (paused || dragging || document.hidden || reduced.matches) return
+
+        // Distance between the first card and its clone. Measured as the gap
+        // between the two, not the clone's raw offsetLeft: that includes the
+        // rail's left padding, and subtracting it left a visible jump of
+        // exactly one padding's width on every loop.
+        const loop = el.querySelector('[data-loop-start]')
+        const first = el.firstElementChild
+        const wrapAt = loop && first ? loop.offsetLeft - first.offsetLeft : 0
+
+        el.scrollLeft += drift
+        if (wrapAt > 0 && el.scrollLeft >= wrapAt) el.scrollLeft -= wrapAt
+      }
+
+      frame = requestAnimationFrame(step)
+    }
 
     return () => {
       el.removeEventListener('pointerdown', onPointerDown)
       el.removeEventListener('pointermove', onPointerMove)
-      el.removeEventListener('pointerup', onPointerUp)
-      el.removeEventListener('pointercancel', onPointerUp)
+      el.removeEventListener('pointerup', endDrag)
+      el.removeEventListener('pointercancel', endDrag)
       el.removeEventListener('click', onClickCapture, true)
       el.removeEventListener('keydown', onKeyDown)
+      el.removeEventListener('pointerenter', pause)
+      el.removeEventListener('pointerleave', resume)
+      el.removeEventListener('focusin', pause)
+      el.removeEventListener('focusout', resume)
+      cancelAnimationFrame(frame)
     }
-  }, [])
+  }, [drift])
 
   return ref
 }
