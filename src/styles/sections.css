@@ -387,17 +387,30 @@
 
   /* --- Projects ------------------------------------------------------------- */
 
+  /*
+   * Two grids, not one. Within each, the cards hold the same kind of content,
+   * so letting them stretch to a shared height looks deliberate — it was
+   * mixing a 530px preview card with a 226px text card in the same row that
+   * made the section look broken.
+   */
   .project-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(min(100%, 20rem), 1fr));
     gap: var(--space-4);
-    /*
-     * Cards size to their own content instead of stretching to the tallest in
-     * the row. Stretching left a card with no preview image looking like an
-     * empty box with its footer marooned at the bottom.
-     */
-    align-items: start;
   }
+
+  /* The two projects with a live demo and a screenshot lead the section. */
+  .project-grid--featured {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 26rem), 1fr));
+  }
+
+  /* Everything else: smaller, denser, uniform. */
+  .project-grid--compact {
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 17rem), 1fr));
+    margin-top: var(--space-4);
+  }
+
+  .project-grid--compact .project-card__body { gap: var(--space-2); }
+  .project-grid--compact .project-card h3 { font-size: var(--text-md); }
 
   /*
    * Shaped like a certificate card: optional preview on top, body below.
